@@ -4,12 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
+Django = "*"
 django-split-settings = "*"
 python-dotenv = "*"
 django-compressor = "*"
 django-libsass = "*"
-brotli = "*"
+Brotli = "*"
 django-htmlmin = "*"
 gunicorn = "*"
 dj-database-url = "*"

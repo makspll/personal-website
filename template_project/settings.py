@@ -2,7 +2,6 @@ from split_settings.tools import optional, include
 import os
 
 ENV = os.environ.get("ENV_NAME",'dev') 
-
 BASE_SETTINGS = [
     'components/common.py',
     'components/languages.py',
