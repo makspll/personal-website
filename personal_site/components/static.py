@@ -1,5 +1,5 @@
 import os
-from template_project.components.common import BASE_DIR
+from personal_site.components.common import BASE_DIR
 
 ## Static files base settings (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/

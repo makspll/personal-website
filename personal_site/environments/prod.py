@@ -1,5 +1,5 @@
-from template_project.components.common import DEBUG,INSTALLED_APPS,BASE_DIR
-from template_project.components.database import DATABASES
+from personal_site.components.common import DEBUG,INSTALLED_APPS,BASE_DIR
+from personal_site.components.database import DATABASES
 import os 
 import dj_database_url
 

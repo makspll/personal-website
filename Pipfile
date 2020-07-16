@@ -13,6 +13,7 @@ Brotli = "*"
 django-htmlmin = "*"
 gunicorn = "*"
 dj-database-url = "*"
+wagtail = "*"
 
 [dev-packages]
 pylint = "*"

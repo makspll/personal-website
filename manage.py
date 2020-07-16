@@ -10,7 +10,7 @@ def main():
     # so that they can be accessed in 
     # the entire project using os.getenv or os.environ
     load_dotenv(verbose=True,override=True)
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'template_project.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'personal_site.settings')
 
     try:
         from django.core.management import execute_from_command_line

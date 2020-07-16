@@ -1,5 +1,5 @@
 """
-WSGI config for template_project project.
+WSGI config for personal_site project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -12,6 +12,6 @@ import os
 from django.core.wsgi import get_wsgi_application
 from dotenv import load_dotenv
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'template_project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'personal_site.settings')
 
 application = get_wsgi_application()

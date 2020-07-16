@@ -1,4 +1,4 @@
-from template_project.components.common import INSTALLED_APPS,MIDDLEWARE,BASE_DIR
+from personal_site.components.common import INSTALLED_APPS,MIDDLEWARE,BASE_DIR
 import debug_toolbar
 from django.urls import path,include
 import os 
