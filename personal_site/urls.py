@@ -16,7 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
-from django.urls import include, path
+from django.urls import path, re_path, include
+
+from wagtail.admin import urls as wagtailadmin_urls
+from wagtail.core import urls as wagtail_urls
+from wagtail.documents import urls as wagtaildocs_urls
+
 from django.http import HttpResponse
 from django.template import loader
 
@@ -28,4 +33,7 @@ except:
 
 urlpatterns = url_additional_patterns + [
     path('admin/', admin.site.urls),
+    path('cms/',include(wagtailadmin_urls)),
+    path('documents/',include(wagtaildocs_urls)),
+    path('',include(wagtail_urls)),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT) 
