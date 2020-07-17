@@ -130,6 +130,5 @@ dmypy.json
 
 # personal_site
 
-personal_site/environments/local.py
 static_root/
 static_build/

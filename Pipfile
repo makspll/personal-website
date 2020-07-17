@@ -14,6 +14,7 @@ django-htmlmin = "*"
 gunicorn = "*"
 dj-database-url = "*"
 wagtail = "*"
+wagtail-metadata = "*"
 
 [dev-packages]
 pylint = "*"
