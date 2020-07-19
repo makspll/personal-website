@@ -1,0 +1,4 @@
+{% extends 'website/blocks/nav_links/base_link_block.html' %}
+{% load wagtailcore_tags %}
+
+{% block url %}{% pageurl value.page %}{% endblock %}

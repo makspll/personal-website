@@ -1,0 +1,17 @@
+{% load wagtailcore_tags %}
+
+<footer class="footer fixed-bottom bg-primary text-secondary">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm d-flex justify-content-center align-items-center">
+            {% for social_item in page.footer.social_items %}
+                {% include_block social_item %}
+            {% endfor %}
+            </div>
+            <div class="col-sm-4 d-flex justify-content-center justify-content-sm-end align-items-stretch">
+                <p class="my-auto text-muted p-2">Copyright &#169 2020 {{request.site.name}}</p>
+            </div>
+        </div>
+    </div>
+</footer>

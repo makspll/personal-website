@@ -1,38 +1,26 @@
-/*! `Custom` Bootstrap 4 theme */
+/*! `Tequila` Bootstrap 4 theme */
+@import url(https://fonts.googleapis.com/css?family=Voltaire:200,300,400,700);
+$headings-font-family:Voltaire;
 
-// $primary:#00abf0;
-// $secondary:#c3d6e4;
-// $success:#b3d334;
-// $danger:#ef1c25;
-// $info:#f59ee5;
-// $warning:#ffc40a;
-// $light:#f8f9fa;
-// $dark:#343a40;
-
-$enable-gradients: true;
-
-// $decorative-font-family:'Milkshake';
-// $decorative-general-font-family: sans-serif;
-
-// $decorative-font-family-2:  'Lobster Two Regular';
-// $decoratige-general-font-family-2: serif;
-
-// $small-font-family: 'SinkinSans';
-// $small-general-font-family: monospace;
-
-// $normal-font-family: 'UnineueLight';
-// $normal-general-font-family: sans-serif;
-
-// $headings-font-family:$normal-font-family, $decorative-general-font-family;
-// $font-family-base:$normal-font-family, $normal-general-font-family;
+$primary:#2F414A;
+$secondary:#F47B53;
+$success:#420084;
+$danger:#f2460d;
+$info:#7ebcfa;
+$warning:#ff9933;
+$light:#eef0f2;
+$dark:#000633;
+$enable-shadows:true;
+$enable-gradients:true;
 
 @import "bootstrap-4.5.0/scss/bootstrap";
 
-$fa-font-path: "fontawesome-free-5.13.1-web/webfonts";
+$fa-font-path: "../../fontawesome-free-5.13.1-web/webfonts";
 
 @import "fontawesome-free-5.13.1-web/scss/fontawesome.scss";
 @import "fontawesome-free-5.13.1-web/scss/solid.scss";
 @import "fontawesome-free-5.13.1-web/scss/brands.scss";
+@import "fontawesome-free-5.13.1-web/scss/regular.scss";
 
 // Add SASS theme customizations here..
 html {font-size: .8rem;height:100%;}

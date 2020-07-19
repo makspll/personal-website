@@ -1,0 +1,59 @@
+{% block menu_item %}
+{% load wagtailcore_tags %}
+
+
+{% if not is_child == "True"%}
+
+<li class="nav-item
+        {% if extra_css_classes %}{{extra_css_classes}}{% endif %} 
+        {% if value.children %} dropdown {% endif %}
+        {% if value.link == request.path or value.page.pk == page.pk%}active{% endif%}
+        underbar-container
+">
+
+{% endif %}
+
+    <a 
+        href="{% block url %}#{% endblock %}"
+        class=" {% if is_child == "True" %} dropdown-item {% else %} nav-link {% endif %}
+                {% if value.children %}dropdown-toggle{% endif %}
+                {% if extra_css_classes %}{{extra_css_classes}}{% endif %}
+                " 
+        {% if value.children %} 
+        id="navbarDropdownMenuLink" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" 
+        {% endif %}
+    >
+        {% if not value.fa_icon_class or value.display_text %}
+        {{value.display_text}}
+        {% endif %}
+
+        {% if value.fa_icon_class%}
+        <i class="{{value.fa_icon_class}}"></i>
+        {% endif %}    
+        <div class="underbar"></div>
+    </a>
+
+    {% if value.children %}
+
+    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+        {% for child in value.children %}
+
+        {% include_block child with is_child="True" %}
+
+        {% endfor %}
+
+    </div>
+
+    {% endif %}
+
+
+{% if not is_child == "True"%}
+
+</li>
+
+{% endif %}
+
+
+
+{% endblock %}

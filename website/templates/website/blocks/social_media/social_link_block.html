@@ -1,0 +1,16 @@
+
+
+<a href="{{ value.link }}" class="stretched-link m-2 fa-lg fa-stack ">
+    <i class="fa fa-circle fa-sm fa-stack-2x text-secondary hoverable-icon"></i>
+    <i class="fab text-primary fa-stack-1x hoverable-icon 
+    {% if value.social_type == "fb"%}
+    fa-facebook
+    {% elif value.social_type == "tt"%}
+    fa-twitter
+    {% elif value.social_type == "li"%}
+    fa-linkedin
+    {% elif value.social_type == "gh"%}
+    fa-github
+    {% endif %}
+    "></i>
+</a>
