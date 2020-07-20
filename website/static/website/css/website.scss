@@ -1,15 +1,36 @@
 @import "personal_site/css/main.scss";
 
 @include media-breakpoint-up(sm) {
-
-  }
+    .navbar-expand-sm .underbar{
+        bottom: 0;
+        left:0;
+        right:0;
+        height:5px;
+        transform:scaleY(0) scaleX(0);
+        transform-origin: bottom;
+    }
+}
   
 @include media-breakpoint-up(md) {
-
+    .navbar-expand-md .underbar{
+        bottom: 0;
+        left:0;
+        right:0;
+        height:5px;
+        transform:scaleY(0) scaleX(0);
+        transform-origin: bottom;
+    }
 }
 
 @include media-breakpoint-up(lg) {
-
+    .navbar-expand-lg .underbar{
+        bottom: 0;
+        left:0;
+        right:0;
+        height:5px;
+        transform:scaleY(0) scaleX(0);
+        transform-origin: bottom;
+    }
 }
 
 *:hover > i.hoverable-icon{
@@ -17,30 +38,40 @@
 }
 
 
-.underbar-container {
+.underbar-container{
     position: relative;
+
+    &:hover .underbar {
+        visibility: visible;
+        background-color: $secondary;
+        transform:scaleY(1) scaleX(1);
+        transition:all 0.2s ease-in-out;
+    }
+
+    &.active .underbar{
+        visibility: visible;
+        background-color: $secondary;
+        transform:scaleY(1) scaleX(1);
+        transition:all 0.2s ease-in-out;
+    }
 }
 
 .underbar{
     visibility: hidden;
     position: absolute;
-    bottom: 0;
-    left:0;
-    right:0;
-    height:5px;
+    transition: 0.15s ease-out;
     background-color: $secondary;
-    transform:scaleX(0);
-    transition:all 0.3s ease-in-out;
+    transform-origin: right;
+    height: auto;
+    width: 5px;
+    right: 0;
+    top: 0;
+    bottom:0;
 }
 
-.underbar-container:hover .underbar{
-    visibility: visible;
-    background-color: $secondary;
-    transform:scaleX(1);
 
+.navbar .underbar{
+    right: -$navbar-padding-x;
 }
 
-.underbar-container.active .underbar{
-    visibility: visible;
-    transform:scaleX(1);
-}
+
