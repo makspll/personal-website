@@ -3,8 +3,12 @@
 
 cd "$1" || exit 1
 
+
+echo "-----> Collecting static files for django-compressor"
+python manage.py collectstatic --noinput --traceback 
+
 echo "-----> Compressing JS/CSS files via django-compressor"
 python manage.py compress --traceback
 
-echo "-----> Collecting static files"
+echo "-----> Collecting static files after django-compressor"
 python manage.py collectstatic --noinput --traceback 
