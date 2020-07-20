@@ -30,9 +30,6 @@ COMPRESS_PRECOMPILERS = [
     ("text/x-scss", "django_libsass.SassCompiler"),
     ('text/x-sass',"django_libsass.SassCompiler")]
 
-COMPRESS_CACHEABLE_PRECOMPILERS = (
-    ("text/x-scss", "django_libsass.SassCompiler"),
-    ('text/x-sass',"django_libsass.SassCompiler"))
 
 
 # filters to apply to js and css files
@@ -50,6 +47,7 @@ COMPRESS_FILTERS={
 }
 
 # use brotli compression
+
 COMPRESS_STORAGE = 'compressor.storage.BrotliCompressorFileStorage'
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
