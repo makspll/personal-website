@@ -16,6 +16,7 @@ dj-database-url = "*"
 wagtail = "*"
 wagtail-metadata = "*"
 wagtail-blocks = "*"
+psycopg2 = "*"
 
 [dev-packages]
 pylint = "*"
