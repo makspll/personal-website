@@ -26,6 +26,15 @@ INSTALLED_APPS = INSTALLED_APPS + [
     'wagtailmetadata',
 ]
 
+## wagtail-blocks
+INSTALLED_APPS = INSTALLED_APPS +[
+    'wagtailfontawesome',
+    'wagtail_blocks',
+]
+
 ## custom apps
 
 INSTALLED_APPS = INSTALLED_APPS + ['website']
+
+
+

@@ -1,0 +1,19 @@
+{% load wagtailcore_tags %}
+
+<div class="timeline py-5"  
+    {% if side %}
+     data-aos="fade-{{side}}"
+    {% else %}
+     data-aos="fade-left" 
+    {% endif%}>
+    {% if value.title %}
+    <span class="timeline-icon"></span>
+    <span class="year">{{ value.title }}</span>
+    {% endif %}
+    <div class="timeline-content ">
+    {% for item in value.items %}
+        {% include_block item %}
+    {% endfor %}
+    </div>
+</div>
+

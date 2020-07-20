@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "bd8621b343aeac9ae3b569215365088f46eb5e6a46bbd0a96edf7c0ca2743c44"
+            "sha256": "f74f7caae50e734409c12f6ebbe720153891b87037959e0b8359137bf3731793"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -348,11 +348,18 @@
         },
         "wagtail": {
             "hashes": [
-                "sha256:07c08f2582c499f78261e4b514a9bad36353cfc47cb8792a79517d13da8f8d1c",
-                "sha256:40b63551b1dbd93831e2dbeb0d455cd30b0723c88758a2fe77d77d0a41507908"
+                "sha256:17169ea7c6a2cf2dc8f945f0a967424d7932843087df4897c813868d7f9cddc0",
+                "sha256:7dba2e5cebee2bb39e4c3db703eeb428b6ba323d72e5fbf384f1ce81f65f7e42"
             ],
             "index": "pypi",
-            "version": "==2.9.2"
+            "version": "==2.9.3"
+        },
+        "wagtail-blocks": {
+            "hashes": [
+                "sha256:890e5ef665de5f98e87884ee0455dbf2b39d0c96705e6d46d20b46777f485e5f"
+            ],
+            "index": "pypi",
+            "version": "==0.7.2"
         },
         "wagtail-metadata": {
             "hashes": [
@@ -361,6 +368,13 @@
             ],
             "index": "pypi",
             "version": "==3.2.0"
+        },
+        "wagtailfontawesome": {
+            "hashes": [
+                "sha256:6c1bd2d6061880848de6374ceb75d38a8c9b0debb1d4aef8a2fdc9d565a8f417",
+                "sha256:76b1c64c4f1042d468a83e4352f74b57bda4a4aa09cdfeeb8663dead5ed632be"
+            ],
+            "version": "==1.2.1"
         },
         "webencodings": {
             "hashes": [

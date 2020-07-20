@@ -1,0 +1,15 @@
+{% extends "website/bases/page_base.html" %}
+
+{% block content %}
+    <div class="d-flex flex-column min-vh-100">
+        <div class="d-flex flex-column {% if page.header.fill_view_height %}vh-100{% endif %}">
+        {% include "website/snippets/navbars/navbar_default.html" %}
+        
+        {% include "website/snippets/headers/header_default.html" %}
+        </div>
+    {% block content_inside %}
+    {% endblock %}
+    </div>
+
+    {% include "website/snippets/footers/footer_default.html"%}
+{% endblock %}

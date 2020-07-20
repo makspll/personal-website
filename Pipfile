@@ -15,6 +15,7 @@ gunicorn = "*"
 dj-database-url = "*"
 wagtail = "*"
 wagtail-metadata = "*"
+wagtail-blocks = "*"
 
 [dev-packages]
 pylint = "*"
