@@ -59,7 +59,8 @@ class Header(models.Model):
     heading = models.CharField(max_length=255)
     lead_paragraph = models.CharField(max_length=255)
 
-    fill_view_height = models.BooleanField(default=False)
+    fill_view_height = models.BooleanField(default=True)
+    include_slide_down_sign = models.BooleanField(default=False)
 
     panels = [
         FieldPanel("name"),
@@ -67,6 +68,7 @@ class Header(models.Model):
         FieldPanel("heading"),
         FieldPanel("lead_paragraph"),
         FieldPanel("fill_view_height"),
+        FieldPanel("include_slide_down_sign"),
     ]
 
 register_snippet(Header)

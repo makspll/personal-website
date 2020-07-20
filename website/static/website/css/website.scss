@@ -109,3 +109,20 @@ $navbar-height: 50px;
     z-index: -1;
     object-fit: fill;
 }
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+    }
+	50% {
+		transform: translatey(-15px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+.float-up-down {
+    transform: translatey(0px);
+	animation: float 2s ease-in-out infinite
+}

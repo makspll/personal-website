@@ -1,5 +1,5 @@
 {% load wagtailimages_tags %}
-
+{% load compress %}
 <div class="jumbotron jumbotron-fluid text-center img-background-container d-flex flex-column  mb-0 {% if page.header.fill_view_height%} flex-grow-1 {% endif%}" >
 
     {% image page.header.background_image original class="img-background"%}
@@ -8,4 +8,27 @@
         <h1 class="display-4">{{ page.specific.header.heading }}</h1>
         <p class="lead">{{page.header.lead_paragraph}}</p>
     </div>
+
+    {% if page.header.include_slide_down_sign%}
+    <div id="scroll-vanish" class="d-flex flex-column justify-content-between" style="height:100px;">
+        <h4>Scroll Down</h4>
+        <i class="fa fa-chevron-down fa-2x float-up-down" aria-hidden="true"></i>
+    </div>
+
+    {% compress js inline %}
+    <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        var vanished = false;
+        var height = $( window ).height() * 0.5;
+        $(window).scroll(function(){
+            //added ending ) after height
+            if ( !vanished && $(this).scrollTop() > height)  {
+                vanished = true;
+                $("#scroll-vanish").fadeTo("slow",0);
+            }
+        });
+    })
+    </script>
+    {% endcompress %}
+    {% endif %}
 </div>

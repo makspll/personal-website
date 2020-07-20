@@ -1,4 +1,6 @@
 @import "website.scss";
+// taken from: https://bootsnipp.com/snippets/Q0ppE
+// modified
 
 $color-1n:$primary;
 $color-2n:$secondary;
@@ -38,6 +40,8 @@ $timeline-content-bg: #f2f2f2;
 .main-timeline8 .timeline:nth-child(4n) .timeline-icon{border-color:$color-4n;}
 .main-timeline8 .timeline:nth-child(4n) .year{background:$color-4n;}
 .main-timeline8 .timeline:nth-child(4n) .year:before{border-top-color:lighten($color: $color-4n, $amount: 10)}
+
+
 @media only screen and (max-width:767px){.main-timeline8{overflow:visible}
 .main-timeline8:before{top:0;left:0}
 .main-timeline8 .timeline:nth-child(2),.main-timeline8 .timeline:nth-child(even),.main-timeline8 .timeline:nth-child(odd){margin:0}
