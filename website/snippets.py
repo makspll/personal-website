@@ -40,25 +40,33 @@ class Footer(models.Model):
     ]
     
 register_snippet(Footer)
-# class Header(models.Model):
-#     """
-#     Represents the header of a page, designed to be placed under the navbar
-#     """
-
-#     name = models.CharField(max_length=255)
-#     background_image = models.ForeignKey(
-#         'wagtailimages.Image',
-#         null=True,
-#         blank=True,
-#         on_delete=models.SET_NULL,
-#         related_name="+",
-#     )
-
-#     header_text = models.CharField(max_length=255)
-#     lead_paragraph = models.CharField(max_length=255)
 
 
-#     panels = [
-#         FieldPanel("name"),
-#         ImageChooserPanel("background_image")
-#     ]
+class Header(models.Model):
+    """
+    Represents the header of a page, designed to be placed under the navbar
+    """
+
+    name = models.CharField(max_length=255)
+    background_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
+
+    heading = models.CharField(max_length=255)
+    lead_paragraph = models.CharField(max_length=255)
+
+    fill_view_height = models.BooleanField(default=False)
+
+    panels = [
+        FieldPanel("name"),
+        ImageChooserPanel("background_image"),
+        FieldPanel("heading"),
+        FieldPanel("lead_paragraph"),
+        FieldPanel("fill_view_height"),
+    ]
+
+register_snippet(Header)

@@ -1,5 +1,7 @@
 from wagtail.core import blocks
 
+
+
 class BaseLinkBlock(blocks.StructBlock):
     """
     Base StructBlock class used to prevent DRY code.

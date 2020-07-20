@@ -1,36 +1,49 @@
 @import "personal_site/css/main.scss";
 
+$navbar-height: 50px;
+
 @include media-breakpoint-up(sm) {
-    .navbar-expand-sm .underbar{
-        bottom: 0;
+    .navbar.navbar-expand-sm .underbar{
+        bottom:-$navbar-padding-y;
         left:0;
         right:0;
+        top: auto;
         height:5px;
+        width: auto;
         transform:scaleY(0) scaleX(0);
-        transform-origin: bottom;
+        transform-origin: bottom center;
     }
+
+
 }
   
 @include media-breakpoint-up(md) {
-    .navbar-expand-md .underbar{
-        bottom: 0;
+    .navbar.navbar-expand-md .underbar{
+        bottom:-$navbar-padding-y;
         left:0;
         right:0;
+        top: auto;
         height:5px;
+        width: auto;
         transform:scaleY(0) scaleX(0);
-        transform-origin: bottom;
+        transform-origin: bottom center;
     }
+
+
 }
 
 @include media-breakpoint-up(lg) {
-    .navbar-expand-lg .underbar{
-        bottom: 0;
+    .navbar.navbar-expand-lg .underbar{
+        bottom:-$navbar-padding-y;
         left:0;
         right:0;
+        top: auto;
         height:5px;
+        width: auto;
         transform:scaleY(0) scaleX(0);
-        transform-origin: bottom;
+        transform-origin: bottom center;
     }
+
 }
 
 *:hover > i.hoverable-icon{
@@ -61,17 +74,38 @@
     position: absolute;
     transition: 0.15s ease-out;
     background-color: $secondary;
-    transform-origin: right;
+    transform-origin: left center;
     height: auto;
     width: 5px;
-    right: 0;
+    left: 0;
     top: 0;
     bottom:0;
+    transform:scaleY(0) scaleX(0);
 }
-
 
 .navbar .underbar{
-    right: -$navbar-padding-x;
+    left: -$navbar-padding-x;
+}
+
+.navbar .underbar:last-of-type{
+    bottom: -$navbar-padding-y;
 }
 
 
+
+.img-background-container {
+    position: relative;
+    background: rgba($color: $secondary, $alpha: 0.85);
+}
+
+.img-background {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: fill;
+}
