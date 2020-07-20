@@ -1,10 +1,10 @@
 {% load wagtailimages_tags %}
 
-<div class="jumbotron jumbotron-fluid text-center img-background-container  mb-0 {% if page.header.fill_view_height%} flex-grow-1 {% endif%}" >
+<div class="jumbotron jumbotron-fluid text-center img-background-container d-flex flex-column  mb-0 {% if page.header.fill_view_height%} flex-grow-1 {% endif%}" >
 
     {% image page.header.background_image original class="img-background"%}
 
-    <div class="container">
+    <div class="container my-auto">
         <h1 class="display-4">{{ page.specific.header.heading }}</h1>
         <p class="lead">{{page.header.lead_paragraph}}</p>
     </div>

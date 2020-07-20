@@ -2,7 +2,7 @@
 {% load wagtailcore_tags %}
 {% load static %}
 
-{% block compressed_css %}
+{% block override_css %}
   <link rel="stylesheet" href="{% static "website/css/timeline.scss" %}" type="text/x-scss">
 {% endblock %}
 
@@ -14,7 +14,7 @@
                 <div class="col-md-12">
                     <div class="main-timeline8">
                     {% for story_item in page.story_items %}
-                            {% cycle 'right' 'left' as curr_side silent%}
+                            {% cycle 'left' 'right' as curr_side silent%}
                             {% include_block story_item with side=curr_side%}
                     {% endfor %}
                     </div>
