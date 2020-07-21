@@ -84,4 +84,4 @@ class FreeformPage(MetadataPageMixin,
         HeaderedPageMixin.content_panels +\
         Page.content_panels +\
         FreeformContentMixin.content_panels
-    
+

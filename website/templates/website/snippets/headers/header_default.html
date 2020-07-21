@@ -21,7 +21,9 @@
     <script>
     document.addEventListener('DOMContentLoaded', (event) => {
         var vanished = false;
-        var height = $( window ).height() * 0.5;
+        var height = $( window ).height() * 0.4;
+        var prompts = ["You can scroll again if you want &#128521","Again?"]
+        var scroll_no = 0
         $(window).scroll(function(){
             //added ending ) after height
             if ( !vanished && $(this).scrollTop() > height)  {
@@ -30,6 +32,11 @@
             } else if (vanished && $(this).scrollTop() <= height ){
                 vanished = false;
                 $("#scroll-vanish").fadeTo("slow",1);
+                var elem = $("#scroll-vanish")
+                var elem_header =  elem.children().filter(":header")
+               elem_header.html(prompts[scroll_no])
+               scroll_no += 1
+               scroll_no = scroll_no % prompts.length
             }
         });
     })
