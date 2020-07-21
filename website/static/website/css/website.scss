@@ -131,4 +131,21 @@
 	animation: float 2s ease-in-out infinite
 }
 
+.collapse-arrow-container{
 
+}
+
+.collapse-arrow{
+    transition: all linear 0.2s;
+    transform:rotate(0deg);
+}
+.collapse-arrow.active{
+    transform: rotate(180deg);
+}
+
+.collapse-arrow.inverted{
+    transform:rotate(180deg);
+}
+.collapse-arrow.inverted.active{
+    transform:rotate(0deg);
+}
