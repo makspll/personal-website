@@ -61,7 +61,8 @@ class Header(models.Model):
 
     fill_view_height = models.BooleanField(default=True)
     include_slide_down_sign = models.BooleanField(default=False)
-
+    slide_down_text = models.CharField(max_length=255,default="Slide Down")
+    
     panels = [
         FieldPanel("name"),
         ImageChooserPanel("background_image"),
@@ -69,6 +70,7 @@ class Header(models.Model):
         FieldPanel("lead_paragraph"),
         FieldPanel("fill_view_height"),
         FieldPanel("include_slide_down_sign"),
+        FieldPanel("slide_down_text"),
     ]
 
 register_snippet(Header)
