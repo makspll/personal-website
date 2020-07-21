@@ -1,0 +1,11 @@
+{% extends "website/blocks/stories/base_story_block.html"%}
+{% load wagtailcore_tags %}
+
+{% block container_css_classes %}{% endblock %}
+
+{% block story_content %}
+{% for story_item in value.timeline_items %}
+        {% cycle 'left' 'right' as curr_side silent%}
+        {% include_block story_item with side=curr_side%}
+{% endfor %}
+{% endblock %}

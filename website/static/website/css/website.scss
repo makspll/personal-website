@@ -1,6 +1,6 @@
 @import "personal_site/css/main.scss";
 
-$navbar-height: 50px;
+@import "website/css/timeline.scss";
 
 @include media-breakpoint-up(sm) {
     .navbar.navbar-expand-sm .underbar{

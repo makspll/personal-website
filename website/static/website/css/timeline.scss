@@ -1,4 +1,3 @@
-@import "website/css/website.scss";
 // taken from: https://bootsnipp.com/snippets/Q0ppE
 // modified
 
@@ -7,48 +6,48 @@ $color-2n:$secondary;
 $color-3n:$secondary;
 $color-4n:$primary;
 
-$timeline-bar-color:#d6d5d5 ;
-$timeline-content-bg: #f2f2f2;
+$event-bar-color:#d6d5d5 ;
+$event-content-bg: #f2f2f2;
 
-.main-timeline8{overflow:hidden;position:relative}
-.main-timeline8:after,.main-timeline8:before{content:"";display:block;width:100%;clear:both}
-.main-timeline8:before{content:"";width:3px;height:100%;background:$timeline-bar-color;position:absolute;top:30px;left:50%}
+.main-timeline{overflow:hidden;position:relative}
+.main-timeline:after,.main-timeline:before{content:"";display:block;width:100%;clear:both}
+.main-timeline:before{content:"";width:3px;height:100%;background:$event-bar-color;position:absolute;top:30px;left:50%}
 
-.main-timeline8 .timeline{width:50%;float:left;padding-right:30px;position:relative}
-.main-timeline8 .timeline-icon{width:32px;height:32px;border-radius:50%;background:#fff;border:3px solid $color-1n;position:absolute;top:5.5%;right:-17.5px}
-.main-timeline8 .year{display:block;padding:10px;margin:0;font-size:30px;color:#fff;border-radius:0 50px 50px 0;background:$color-1n;text-align:center;position:relative}
-.main-timeline8 .year:before{content:"";border-top:35px solid lighten($color: $color-1n, $amount: 10);border-left:35px solid transparent;position:absolute;bottom:-35px;left:0}
-.main-timeline8 .timeline-content{padding:30px 20px;margin:0 45px 0 35px;background:$timeline-content-bg}
+.main-timeline .event{width:50%;float:left;padding-right:30px;position:relative}
+.main-timeline .event-icon{width:32px;height:32px;border-radius:50%;background:#fff;border:3px solid $color-1n;position:absolute;top:5.5%;right:-17.5px}
+.main-timeline .year{display:block;padding:10px;margin:0;font-size:30px;color:#fff;border-radius:0 50px 50px 0;background:$color-1n;text-align:center;position:relative}
+.main-timeline .year:before{content:"";border-top:35px solid lighten($color: $color-1n, $amount: 10);border-left:35px solid transparent;position:absolute;bottom:-35px;left:0}
+.main-timeline .event-content{padding:30px 20px;margin:0 45px 0 35px;background:$event-content-bg}
 
-.main-timeline8 .title{font-size:19px;font-weight:700;color:#504f54;margin:0 0 10px}
-.main-timeline8 .description{font-size:14px;color:#7d7b7b;margin:0}
+.main-timeline .title{font-size:19px;font-weight:700;color:#504f54;margin:0 0 10px}
+.main-timeline .description{font-size:14px;color:#7d7b7b;margin:0}
 
-.main-timeline8 .timeline:nth-child(2n){padding:0 0 0 30px}
-.main-timeline8 .timeline:nth-child(2n) .timeline-icon{right:auto;left:-14.5px}
-.main-timeline8 .timeline:nth-child(2n) .year{border-radius:50px 0 0 50px;background:$color-2n}
-.main-timeline8 .timeline:nth-child(2n) .year:before{border-left:none;border-right:35px solid transparent;left:auto;right:0}
-.main-timeline8 .timeline:nth-child(2n) .timeline-content{text-align:right;margin:0 35px 0 45px}
-.main-timeline8 .timeline:nth-child(2){margin-top:170px}
-.main-timeline8 .timeline:nth-child(odd){margin:-175px 0 0}
-.main-timeline8 .timeline:nth-child(even){margin-bottom:80px}
-.main-timeline8 .timeline:first-child,.main-timeline8 .timeline:last-child:nth-child(even){margin:0}
-.main-timeline8 .timeline:nth-child(2n) .timeline-icon{border-color:$color-2n}
-.main-timeline8 .timeline:nth-child(2n) .year:before{border-top-color:lighten($color: $color-2n, $amount: 10)}
-.main-timeline8 .timeline:nth-child(3n) .timeline-icon{border-color:$color-3n}
-.main-timeline8 .timeline:nth-child(3n) .year{background:$color-3n}
-.main-timeline8 .timeline:nth-child(3n) .year:before{border-top-color:lighten($color: $color-3n, $amount: 10)}
-.main-timeline8 .timeline:nth-child(4n) .timeline-icon{border-color:$color-4n;}
-.main-timeline8 .timeline:nth-child(4n) .year{background:$color-4n;}
-.main-timeline8 .timeline:nth-child(4n) .year:before{border-top-color:lighten($color: $color-4n, $amount: 10)}
+.main-timeline .event:nth-child(2n){padding:0 0 0 30px}
+.main-timeline .event:nth-child(2n) .event-icon{right:auto;left:-14.5px}
+.main-timeline .event:nth-child(2n) .year{border-radius:50px 0 0 50px;background:$color-2n}
+.main-timeline .event:nth-child(2n) .year:before{border-left:none;border-right:35px solid transparent;left:auto;right:0}
+.main-timeline .event:nth-child(2n) .event-content{text-align:right;margin:0 35px 0 45px}
+.main-timeline .event:nth-child(2){margin-top:170px}
+.main-timeline .event:nth-child(odd){margin:-175px 0 0}
+.main-timeline .event:nth-child(even){margin-bottom:80px}
+.main-timeline .event:first-child,.main-timeline .event:last-child:nth-child(even){margin:0}
+.main-timeline .event:nth-child(2n) .event-icon{border-color:$color-2n}
+.main-timeline .event:nth-child(2n) .year:before{border-top-color:lighten($color: $color-2n, $amount: 10)}
+.main-timeline .event:nth-child(3n) .event-icon{border-color:$color-3n}
+.main-timeline .event:nth-child(3n) .year{background:$color-3n}
+.main-timeline .event:nth-child(3n) .year:before{border-top-color:lighten($color: $color-3n, $amount: 10)}
+.main-timeline .event:nth-child(4n) .event-icon{border-color:$color-4n;}
+.main-timeline .event:nth-child(4n) .year{background:$color-4n;}
+.main-timeline .event:nth-child(4n) .year:before{border-top-color:lighten($color: $color-4n, $amount: 10)}
 
 
-@media only screen and (max-width:767px){.main-timeline8{overflow:visible}
-.main-timeline8:before{top:0;left:0}
-.main-timeline8 .timeline:nth-child(2),.main-timeline8 .timeline:nth-child(even),.main-timeline8 .timeline:nth-child(odd){margin:0}
-.main-timeline8 .timeline{width:100%;float:none;padding:0 0 0 30px;margin-bottom:20px!important}
-.main-timeline8 .timeline:last-child{margin:0!important}
-.main-timeline8 .timeline-icon{right:auto;left:-14.5px}
-.main-timeline8 .year{border-radius:50px 0 0 50px}
-.main-timeline8 .year:before{border-left:none;border-right:35px solid transparent;left:auto;right:0}
-.main-timeline8 .timeline-content{margin:0 35px 0 45px}
+@media only screen and (max-width:767px){.main-timeline{overflow:visible}
+.main-timeline:before{top:0;left:0}
+.main-timeline .event:nth-child(2),.main-timeline .event:nth-child(even),.main-timeline .event:nth-child(odd){margin:0}
+.main-timeline .event{width:100%;float:none;padding:0 0 0 30px;margin-bottom:20px!important}
+.main-timeline .event:last-child{margin:0!important}
+.main-timeline .event-icon{right:auto;left:-14.5px}
+.main-timeline .year{border-radius:50px 0 0 50px}
+.main-timeline .year:before{border-left:none;border-right:35px solid transparent;left:auto;right:0}
+.main-timeline .event-content{margin:0 35px 0 45px}
 }

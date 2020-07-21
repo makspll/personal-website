@@ -27,6 +27,9 @@
             if ( !vanished && $(this).scrollTop() > height)  {
                 vanished = true;
                 $("#scroll-vanish").fadeTo("slow",0);
+            } else if (vanished && $(this).scrollTop() <= height ){
+                vanished = false;
+                $("#scroll-vanish").fadeTo("slow",1);
             }
         });
     })

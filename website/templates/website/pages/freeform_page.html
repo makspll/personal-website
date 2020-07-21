@@ -1,0 +1,14 @@
+{% extends "website/bases/navigation_base.html"%}
+{% load wagtailcore_tags %}
+{% load static %}
+
+{% block content_inside %}
+    <div class= "container-xl px-0 text-center shadow-lg d-flex flex-column flex-grow-1 justify-content-around">
+        {% for block in page.freeform_items %}
+            {% include_block block %}
+            {% if not forloop.last %}
+                <hr/>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

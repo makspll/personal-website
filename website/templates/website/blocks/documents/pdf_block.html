@@ -1,0 +1,34 @@
+{% extends "website/blocks/documents/base_document_block.html"%}
+{% load compress %}
+
+{% block document_content %}
+<div id="document-holder" class="p-5  d-flex flex-column justify-content-center">
+    
+    <p class="p-5">Your browser doesn't support embedded PDF's, help yourself with a download below:</p>
+    <a class="btn btn-primary  align-self-center mb-5" href="{{ value.document.url }}">Download PDF</a>
+
+</div>
+<p class="text-muted mb-5" >should the embedded document fail to show and the fallback not trigger <a href={{value.document.url}}>click here</a></p>
+   
+{% compress css inline %}
+<style>
+.pdfobject {
+    height:100vh !important;
+}
+</style>
+{% endcompress %}
+
+{% compress js inline %}
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        PDFObject.embed("{% url "view_document" value.document.id value.document.filename %}", "#document-holder");
+            $(document).ready(function(){
+                $(".pdfobject").addClass("border border-light rounded");
+            })
+    });
+
+   
+</script>
+{% endcompress %}
+
+{% endblock %}

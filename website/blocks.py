@@ -1,5 +1,20 @@
 from wagtail.core import blocks
+from django.db import models
+from django.utils.functional import cached_property
 
+# class StyleDependentBlockMixin(models.Model):
+#     def get_stylesheet_insert_template(self):
+#         return None
+    
+#     class Meta:
+#         abstract = True
+
+# class ScriptDependentBlockMixin(models.Model):
+#     def get_script_insert_template(self):
+#         return None
+    
+#     class Meta:
+#         abstract = True
 
 
 class BaseLinkBlock(blocks.StructBlock):
@@ -69,25 +84,36 @@ from wagtail_blocks.blocks import HeaderBlock, ListBlock, ImageTextOverlayBlock,
     ListWithImagesBlock, ThumbnailGalleryBlock, ChartBlock, MapBlock, ImageSliderBlock
 
 
+from wagtail.documents.blocks import DocumentChooserBlock
+    
+class BaseDocumentEmbeddBlock(blocks.StructBlock):
+    document = DocumentChooserBlock()
+
+class PDFEmbeddBlock(BaseDocumentEmbeddBlock): 
+    """
+        Block designed to embedd pdf content and degrade nicely with browser incompatibilities
+    """
+    class Meta:
+        template = 'website/blocks/documents/pdf_block.html'
 
 
 class BaseStoryBlock(blocks.StructBlock):
-    title = blocks.CharBlock(max_length=255,required=False)
+    pass
 
-class VerticalStoryContentBlock(BaseStoryBlock):
-    items = blocks.StreamBlock(
-        [
-        ('header', HeaderBlock()),
-        ('list', ListBlock()),
-        ('image_text_overlay', ImageTextOverlayBlock()),
-        ('cropped_images_with_text', CroppedImagesWithTextBlock()),
-        ('list_with_images', ListWithImagesBlock()),
-        ('thumbnail_gallery', ThumbnailGalleryBlock()),
-        ('chart', ChartBlock()),
-        ('map', MapBlock()),
-        ('image_slider', ImageSliderBlock()),
-        ('rich_text',blocks.RichTextBlock()),
-        ('html',blocks.RawHTMLBlock())])
+class TimelineEventBlock(blocks.StructBlock):
+    date = blocks.DateBlock(required=False)
+    header = blocks.CharBlock(max_length=255,required=False)
+    lead_paragraph = blocks.RichTextBlock(required=False)
+    
+    class Meta:
+        template = "website/blocks/stories/timeline_event_block.html"
+
+class TimelineBlock(BaseStoryBlock):
+    timeline_items = blocks.StreamBlock([
+        ("event",TimelineEventBlock())
+    ])
 
     class Meta:
-        template = 'website/blocks/story/vertical_story_content_block.html'
+        template = "website/blocks/stories/timeline_block.html"
+
+        

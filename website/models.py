@@ -8,7 +8,7 @@ from wagtail.search import index
 from wagtail.core.fields import RichTextField
 from .snippets import Navbar, Footer, Header
 from wagtailmetadata.models import MetadataPageMixin
-from .blocks import VerticalStoryContentBlock
+from .blocks import PDFEmbeddBlock, TimelineBlock
 # Create your models here.
 
 
@@ -57,41 +57,31 @@ class HeaderedPageMixin(models.Model):
 
 from wagtail.core.fields import StreamField
 
-class StoryHomePage(MetadataPageMixin,
-                    Page,
-                    HeaderedPageMixin,
-                    NavigationPageMixin):
+class FreeformContentMixin(models.Model):
 
-    template ="website/pages/story_home_page.html"
-
-    timeline_title = models.CharField(max_length=250,default="Timeline")
-    
-    story_items = StreamField([
-        ("vertical_content_block",VerticalStoryContentBlock())
+    freeform_items = StreamField([
+        ("pdf",PDFEmbeddBlock()),
+        ("timeline",TimelineBlock()),
     ],null=True,blank=True)
 
-    content_panels = NavigationPageMixin.content_panels \
-        + HeaderedPageMixin.content_panels + Page.content_panels + [
-            StreamFieldPanel("story_items"),
-        ]
+    content_panels = [
+        StreamFieldPanel("freeform_items"),
+    ]
 
-class ResumePage(MetadataPageMixin,
-                Page,
-                HeaderedPageMixin,
-                NavigationPageMixin):
+    class Meta:
+        abstract = True
 
-    resume = models.ForeignKey(
-        'wagtaildocs.Document',
-        null=True,
-        blank=True,
-        on_delete = models.SET_NULL,
-        related_name='+'
-    )
+class FreeformPage(MetadataPageMixin,
+                    Page,
+                    HeaderedPageMixin,
+                    NavigationPageMixin,
+                    FreeformContentMixin):
 
-    template = "website/pages/resume_page.html"
+    template = "website/pages/freeform_page.html"
 
-    content_panels = NavigationPageMixin.content_panels \
-        + HeaderedPageMixin.content_panels + Page.content_panels + [
-            DocumentChooserPanel("resume"),
-        ]
-
+    content_panels = \
+        NavigationPageMixin.content_panels +\
+        HeaderedPageMixin.content_panels +\
+        Page.content_panels +\
+        FreeformContentMixin.content_panels
+    

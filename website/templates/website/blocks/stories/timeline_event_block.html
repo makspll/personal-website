@@ -1,6 +1,6 @@
 {% load wagtailcore_tags %}
 
-<div class="timeline py-5"  
+<div class="event py-5"  
     {% if side %}
         {% if side == "left"%}
         data-aos="fade-right"
@@ -12,14 +12,12 @@
     {% endif%}    
     data-aos-offset="500"
 >
-    {% if value.title %}
-    <span class="timeline-icon"></span>
-    <span class="year">{{ value.title }}</span>
+    <span class="event-icon"></span>
+    {% if value.date %}
+    <span class="year">{{ value.date }}</span>
     {% endif %}
-    <div class="timeline-content ">
-    {% for item in value.items %}
-        {% include_block item %}
-    {% endfor %}
+    <div class="event-content">
+        <h4 class="title">{{value.header}}</h3>
+        <p class="description"> {{value.lead_paragraph}} </p>
     </div>
 </div>
-
