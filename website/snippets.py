@@ -38,7 +38,10 @@ class Footer(models.Model):
         FieldPanel('name'),
         StreamFieldPanel('social_items'),
     ]
-    
+
+    def __str__(self):
+        return self.name
+
 register_snippet(Footer)
 
 
@@ -72,5 +75,8 @@ class Header(models.Model):
         FieldPanel("include_slide_down_sign"),
         FieldPanel("slide_down_text"),
     ]
+
+    def __str__(self):
+        return self.name
 
 register_snippet(Header)

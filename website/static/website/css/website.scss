@@ -110,6 +110,10 @@ $navbar-height: 50px;
     object-fit: fill;
 }
 
+.img-background-container.color-only{
+    background-color:$secondary;
+}
+
 @keyframes float {
 	0% {
 		transform: translatey(0px);

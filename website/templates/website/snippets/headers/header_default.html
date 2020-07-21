@@ -1,6 +1,8 @@
 {% load wagtailimages_tags %}
 {% load compress %}
-<div class="jumbotron jumbotron-fluid text-center img-background-container d-flex flex-column  mb-0 {% if page.header.fill_view_height%} flex-grow-1 {% endif%}" >
+
+{% if page.header %}
+<div class="jumbotron jumbotron-fluid text-center img-background-container {%if not page.header.background_image %}color-only{% endif %} d-flex flex-column  mb-0 {% if page.header.fill_view_height%} flex-grow-1 {% endif%}" >
 
     {% image page.header.background_image original class="img-background"%}
 
@@ -32,3 +34,4 @@
     {% endcompress %}
     {% endif %}
 </div>
+{% endif %}

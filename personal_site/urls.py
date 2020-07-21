@@ -25,6 +25,8 @@ from wagtail.documents import urls as wagtaildocs_urls
 from django.http import HttpResponse
 from django.template import loader
 
+from website import urls as website_urls
+
 ## allow settings to add env dependent patterns
 try:
     url_additional_patterns = settings.DEFAULT_URL_PATTERNS
@@ -36,4 +38,5 @@ urlpatterns = url_additional_patterns + [
     path('cms/',include(wagtailadmin_urls)),
     path('documents/',include(wagtaildocs_urls)),
     path('',include(wagtail_urls)),
+    path('',include(website_urls))
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT) 

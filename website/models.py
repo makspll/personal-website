@@ -3,6 +3,7 @@ from wagtail.core.models import Page
 from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel, StreamFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
+from wagtail.documents.edit_handlers import DocumentChooserPanel
 from wagtail.search import index
 from wagtail.core.fields import RichTextField
 from .snippets import Navbar, Footer, Header
@@ -73,3 +74,24 @@ class StoryHomePage(MetadataPageMixin,
         + HeaderedPageMixin.content_panels + Page.content_panels + [
             StreamFieldPanel("story_items"),
         ]
+
+class ResumePage(MetadataPageMixin,
+                Page,
+                HeaderedPageMixin,
+                NavigationPageMixin):
+
+    resume = models.ForeignKey(
+        'wagtaildocs.Document',
+        null=True,
+        blank=True,
+        on_delete = models.SET_NULL,
+        related_name='+'
+    )
+
+    template = "website/pages/resume_page.html"
+
+    content_panels = NavigationPageMixin.content_panels \
+        + HeaderedPageMixin.content_panels + Page.content_panels + [
+            DocumentChooserPanel("resume"),
+        ]
+

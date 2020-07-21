@@ -38,3 +38,6 @@ INSTALLED_APPS = INSTALLED_APPS + ['website']
 
 
 
+## x-frame-options
+# allow embeding own content on site
+X_FRAME_OPTIONS = 'SAMEORIGIN'
