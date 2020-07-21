@@ -80,13 +80,11 @@ class SocialMediaLinkBlock(blocks.StructBlock):
     class Meta:
         template = 'website/blocks/social_media/social_link_block.html'
 
-from wagtail_blocks.blocks import HeaderBlock, ListBlock, ImageTextOverlayBlock, CroppedImagesWithTextBlock, \
-    ListWithImagesBlock, ThumbnailGalleryBlock, ChartBlock, MapBlock, ImageSliderBlock
-
-
 from wagtail.documents.blocks import DocumentChooserBlock
     
 class BaseDocumentEmbeddBlock(blocks.StructBlock):
+    title = blocks.CharBlock(max_length=255,default="Document")
+    description = blocks.CharBlock(max_length=255,default="Example description")
     document = DocumentChooserBlock()
 
 class PDFEmbeddBlock(BaseDocumentEmbeddBlock): 
@@ -104,7 +102,7 @@ class TimelineEventBlock(blocks.StructBlock):
     date = blocks.DateBlock(required=False)
     header = blocks.CharBlock(max_length=255,required=False)
     lead_paragraph = blocks.RichTextBlock(required=False)
-    
+
     class Meta:
         template = "website/blocks/stories/timeline_event_block.html"
 

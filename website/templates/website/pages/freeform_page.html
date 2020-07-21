@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content_inside %}
-    <div class= "container-xl px-0 text-center shadow-lg d-flex flex-column flex-grow-1 justify-content-around">
+    <div class= "container-xl h-100 px-0 text-center shadow-lg d-flex flex-column flex-grow-1 justify-content-start">
         {% for block in page.freeform_items %}
             {% include_block block %}
             {% if not forloop.last %}

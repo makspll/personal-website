@@ -1,3 +1,18 @@
-<div class="p-5 h-100 d-flex flex-column justify-content-center">
-    {% block document_content %}{% endblock %}
+{% load utilities %}
+
+{% get_uuid_digits as uuid %}
+
+<div class="flex-grow-1 d-flex flex-column card">
+    <a class="card-header" type="button" data-target="#card-closable{{uuid}}" data-toggle="collapse" aria-expanded="true" >
+        <h2>{{value.title}}</h2>
+        <p class="card-text">{{value.description}}</p>
+    </a>
+    <div id="card-closable{{uuid}}" class="flex-grow-1 d-flex flex-column ">
+        <div class="card-body p-0 d-flex flex-grow-1 flex-column justify-content-center">
+        {% block document_content %}{% endblock %}
+        </div>
+        <div class="card-footer">
+        {% block document_footer %}{% endblock %}
+        </div>
+    </div>
 </div>
