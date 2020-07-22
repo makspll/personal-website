@@ -85,3 +85,49 @@ class FreeformPage(MetadataPageMixin,
         Page.content_panels +\
         FreeformContentMixin.content_panels
 
+
+
+class ArticlePageMixin(models.Model):
+    
+    short_title = models.CharField(max_length=255,default="Article")
+
+    featured_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
+
+    blurb = RichTextField()
+    content = RichTextField()
+
+    content_panels = [
+        FieldPanel("short_title"),
+        ImageChooserPanel("featured_image"),
+        FieldPanel("blurb"),
+        FieldPanel("content"),
+    ]
+
+    class Meta:
+        abstract = True
+
+
+class ArticlePage(MetadataPageMixin,
+                    Page,
+                    NavigationPageMixin,
+                    ArticlePageMixin,):
+
+    template = "website/pages/article_page.html"
+
+    content_panels = \
+        NavigationPageMixin.content_panels +\
+        Page.content_panels +\
+        ArticlePageMixin.content_panels
+
+class ProjectArticlePage(ArticlePage):
+    template = "website/pages/project_article_page.html"
+    
+    content_panels = ArticlePage.content_panels + [
+
+    ]

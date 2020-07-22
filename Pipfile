@@ -17,6 +17,7 @@ wagtail = "*"
 wagtail-metadata = "*"
 wagtail-blocks = "*"
 psycopg2 = "*"
+django-tz-detect = "*"
 
 [dev-packages]
 pylint = "*"

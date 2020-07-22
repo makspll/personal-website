@@ -1,5 +1,4 @@
 @import "personal_site/css/main.scss";
-
 @import "website/css/timeline.scss";
 
 @include media-breakpoint-up(sm) {
@@ -131,9 +130,6 @@
 	animation: float 2s ease-in-out infinite
 }
 
-.collapse-arrow-container{
-
-}
 
 .collapse-arrow{
     transition: all linear 0.2s;
@@ -148,4 +144,48 @@
 }
 .collapse-arrow.inverted.active{
     transform:rotate(0deg);
+}
+
+.p {
+    font-family: $font-family-base;
+    line-height: $line-height-base;
+
+}
+
+
+.article{
+    text-align: left;
+}
+
+$article-lg-spacer: map-get($map: $spacers, $key:5);
+$article-md-spacer: map-get($map: $spacers, $key:4);
+$article-sm-spacer: map-get($map: $spacers, $key:3);
+
+.article-header{
+    padding-top: $article-lg-spacer;
+    padding-bottom: $article-lg-spacer; 
+}
+
+.article-thumbnail ~ .article-header{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.article-header .article-thumbnail{
+    margin-top: $article-sm-spacer;
+    margin-bottom: $article-sm-spacer;
+}
+
+.article-thumbnail{
+    margin-top: $article-lg-spacer;
+    margin-bottom: $article-lg-spacer;
+}
+
+.article-header ~ hr.article-divider{
+    margin-top: 0;
+    margin-bottom: $article-lg-spacer;
+}
+
+.article-header p:last-of-type{
+    margin-bottom: 0;
 }

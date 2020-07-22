@@ -28,7 +28,10 @@
   <!--page-->
   {% block head %}
   {% endblock %}
-
+<!--hello-->
+ {% load tz_detect %}
+  {% tz_detect %}
+  <!--hello-->
 </head>
 
 <body>
@@ -49,8 +52,10 @@
   </script>
   {% block compressed_scripts %}
   {% endblock %}
-  {% endcompress %}
 
+
+  {% endcompress %}
+ 
   <!--uncompressed scripts-->
   {% block uncompressed_scripts %}
   {% endblock %}

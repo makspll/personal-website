@@ -13,6 +13,7 @@ $dark:#000633;
 $enable-shadows:true;
 $enable-gradients:false;
 
+$line-height-base: 2;
 @import "bootstrap-4.5.0/scss/bootstrap";
 
 $fa-font-path: "../../fontawesome-free-5.13.1-web/webfonts";
@@ -22,10 +23,11 @@ $fa-font-path: "../../fontawesome-free-5.13.1-web/webfonts";
 @import "fontawesome-free-5.13.1-web/scss/brands.scss";
 @import "fontawesome-free-5.13.1-web/scss/regular.scss";
 // Add SASS theme customizations here..
-html {font-size: .8rem;height:100%;}
-@include media-breakpoint-up(sm) {html {font-size: .9rem;} .max-vw-50 {max-width: 50vw;}}
-@include media-breakpoint-up(md) {html {font-size: .9rem;}}
-@include media-breakpoint-up(lg) {html {font-size: 1rem;}}
+html {font-size: 1rem;height:100%;}
+
+@include media-breakpoint-up(sm) {html {font-size: 1.1rem;} .max-vw-50 {max-width: 50vw;}}
+@include media-breakpoint-up(md) {html {font-size: 1.1rem;}}
+@include media-breakpoint-up(lg) {html {font-size: 1.2rem;}}
 
 
 @import "aos/aos.scss"

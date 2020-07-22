@@ -26,6 +26,7 @@ from django.http import HttpResponse
 from django.template import loader
 
 from website import urls as website_urls
+from tz_detect import urls as tz_urls
 
 ## allow settings to add env dependent patterns
 try:
@@ -34,9 +35,10 @@ except:
     url_additional_patterns = []
 
 urlpatterns = url_additional_patterns + [
+    path('tz_detect/', include(tz_urls)),
     path('admin/', admin.site.urls),
     path('cms/',include(wagtailadmin_urls)),
     path('documents/',include(wagtaildocs_urls)),
     path('',include(wagtail_urls)),
-    path('',include(website_urls))
+    path('',include(website_urls)),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT) 

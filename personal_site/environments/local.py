@@ -32,6 +32,12 @@ INSTALLED_APPS = INSTALLED_APPS +[
     'wagtail_blocks',
 ]
 
+##django-tz-detect
+INSTALLED_APPS = INSTALLED_APPS +[
+        'tz_detect',
+]
+
+MIDDLEWARE = MIDDLEWARE + ['tz_detect.middleware.TimezoneMiddleware',]
 ## custom apps
 
 INSTALLED_APPS = INSTALLED_APPS + ['website']
