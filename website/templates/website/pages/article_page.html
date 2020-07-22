@@ -5,9 +5,9 @@
 {% load wagtailimages_tags %}
 
 {% block content_inside %}
-    <div class= "container-xl p-5 text-center shadow-lg flex-grow-1 ">
+    <div class= "container-sm article-container p-4 p-sm-5 text-center shadow-lg flex-grow-1 ">
         <nav aria-label="breadcrumb ">
-            <ol class="breadcrumb mb-0">
+            <ol class="breadcrumb mb-0 mx-0">
                 {% get_page_ancestors_without_root page as breadcrumbs %}
                 {% for breadcrumb in breadcrumbs %}
                     <li class="breadcrumb-item"><a class="text-decoration-none" href="{% pageurl breadcrumb %}">{{breadcrumb.title}}</a></li>
@@ -15,7 +15,7 @@
                 <li class="breadcrumb-item active " aria-current="page">{{page.short_title}}</li>
             </ol>
         </nav>
-        <div class="article">
+        <div class="article  ">
             <header class="article-header">
                 
                 <h1 class="display-4">{{page.title}}</h1>
@@ -29,13 +29,13 @@
                 </div>
                 {% image page.featured_image original class="article-thumbnail img-fluid  img-thumbnail"%}
 
-                <h2 class="p lead">{{page.blurb|richtext}}</h2>
+                <h2 class="p">{{page.blurb|richtext}}</h2>
 
             </header>
             
             <hr class="article-divider"/>
 
-            <div class="article-body">
+            <div class="article-body" >
             {{page.content|richtext}}
             </div>
         </div>

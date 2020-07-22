@@ -94,7 +94,7 @@
 
 .img-background-container {
     position: relative;
-    background: rgba($color: $secondary, $alpha: 0.85);
+    background: rgba($color: $secondary, $alpha: 0.7);
 }
 
 .img-background {
@@ -147,9 +147,9 @@
 }
 
 .p {
-    font-family: $font-family-base;
-    line-height: $line-height-base;
-
+    font-family:$font-family-base;
+    line-height: inherit;
+    font-size: inherit;
 }
 
 
@@ -188,4 +188,8 @@ $article-sm-spacer: map-get($map: $spacers, $key:3);
 
 .article-header p:last-of-type{
     margin-bottom: 0;
+}
+
+.article-container{
+    max-width: 750px;
 }
