@@ -36,7 +36,9 @@
             <hr class="article-divider"/>
 
             <div class="article-body" >
-            {{page.content|richtext}}
+            {% for article_item in page.article_items %}
+                    {% include_block article_item %}
+            {% endfor %}
             </div>
         </div>
     </div>

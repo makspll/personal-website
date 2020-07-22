@@ -56,12 +56,14 @@ class HeaderedPageMixin(models.Model):
         abstract = True
 
 from wagtail.core.fields import StreamField
+from wagtailcodeblock.blocks import CodeBlock
 
 class FreeformContentMixin(models.Model):
 
     freeform_items = StreamField([
         ("pdf",PDFEmbeddBlock()),
         ("timeline",TimelineBlock()),
+        ("code",CodeBlock()),
     ],null=True,blank=True)
 
     content_panels = [
@@ -86,6 +88,7 @@ class FreeformPage(MetadataPageMixin,
         FreeformContentMixin.content_panels
 
 
+from wagtail.core.blocks import RichTextBlock
 
 class ArticlePageMixin(models.Model):
     
@@ -100,13 +103,16 @@ class ArticlePageMixin(models.Model):
     )
 
     blurb = RichTextField()
-    content = RichTextField()
+    article_items = StreamField([
+        ("text",RichTextBlock()),
+        ("code", CodeBlock()),
+    ],null=True,blank=True)
 
     content_panels = [
         FieldPanel("short_title"),
         ImageChooserPanel("featured_image"),
         FieldPanel("blurb"),
-        FieldPanel("content"),
+        StreamFieldPanel("article_items"),
     ]
 
     class Meta:

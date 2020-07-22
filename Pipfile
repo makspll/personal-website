@@ -18,6 +18,7 @@ wagtail-metadata = "*"
 wagtail-blocks = "*"
 psycopg2 = "*"
 django-tz-detect = "*"
+wagtailcodeblock = "*"
 
 [dev-packages]
 pylint = "*"

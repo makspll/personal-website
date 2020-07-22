@@ -114,4 +114,3 @@ class TimelineBlock(BaseStoryBlock):
     class Meta:
         template = "website/blocks/stories/timeline_block.html"
 
-        
