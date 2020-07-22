@@ -177,6 +177,7 @@ $article-sm-spacer: map-get($map: $spacers, $key:3);
 }
 
 .article-thumbnail{
+    background-color: $primary;
     margin-top: $article-lg-spacer;
     margin-bottom: $article-lg-spacer;
 }
