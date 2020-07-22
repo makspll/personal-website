@@ -9,8 +9,9 @@ from wagtail.core.fields import RichTextField
 from .snippets import Navbar, Footer, Header
 from wagtailmetadata.models import MetadataPageMixin
 from .blocks import PDFEmbeddBlock, TimelineBlock
-# Create your models here.
+from datetime import date
 
+# Create your models here.
 
 class NavigationPageMixin(models.Model):
     navbar = models.ForeignKey(
@@ -134,6 +135,11 @@ class ArticlePage(MetadataPageMixin,
 class ProjectArticlePage(ArticlePage):
     template = "website/pages/project_article_page.html"
     
-    content_panels = ArticlePage.content_panels + [
 
+    project_start_date = models.DateField(blank=True,null=True,default=date.today)
+    project_end_date = models.DateField(blank=True,null=True,default=date.today)
+    
+    content_panels = ArticlePage.content_panels + [
+        FieldPanel("project_start_date"),
+        FieldPanel("project_end_date"),
     ]
