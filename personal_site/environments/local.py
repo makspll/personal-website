@@ -41,7 +41,7 @@ MIDDLEWARE = MIDDLEWARE + ['tz_detect.middleware.TimezoneMiddleware',]
 
 ## wagtail code block
 INSTALLED_APPS = INSTALLED_APPS + ['wagtailcodeblock',]
-WAGTAIL_CODE_BLOCK_THEME = 'solarizedlight'
+WAGTAIL_CODE_BLOCK_THEME = 'twilight'
 WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('abap', 'ABAP'),
     ('abnf', 'Augmented Backus–Naur form'),
