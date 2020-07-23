@@ -7,7 +7,7 @@
 {% block content_inside %}
     <div class= "container-sm article-container text-center shadow-lg flex-grow-1 px-0">
         <nav aria-label="breadcrumb ">
-            <ol class="breadcrumb  px-4 px-sm-5 bg-white">
+            <ol class="breadcrumb  pt-5 px-4 px-sm-5 bg-white">
                 {% get_page_ancestors_without_root page as breadcrumbs %}
                 {% for breadcrumb in breadcrumbs %}
                     <li class="breadcrumb-item"><a class="text-decoration-none" href="{% pageurl breadcrumb %}">{{breadcrumb.title}}</a></li>
