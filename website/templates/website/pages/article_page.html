@@ -5,9 +5,9 @@
 {% load wagtailimages_tags %}
 
 {% block content_inside %}
-    <div class= "container-sm article-container px-4 px-sm-5 text-center shadow-lg flex-grow-1 ">
+    <div class= "container-sm article-container text-center shadow-lg flex-grow-1 px-0">
         <nav aria-label="breadcrumb ">
-            <ol class="breadcrumb px-0 mb-0 mx-0 bg-white">
+            <ol class="breadcrumb  px-4 px-sm-5 bg-white">
                 {% get_page_ancestors_without_root page as breadcrumbs %}
                 {% for breadcrumb in breadcrumbs %}
                     <li class="breadcrumb-item"><a class="text-decoration-none" href="{% pageurl breadcrumb %}">{{breadcrumb.title}}</a></li>
@@ -16,7 +16,7 @@
             </ol>
         </nav>
         <div class="article  ">
-            <header class="article-header">
+            <header class="article-header px-4 px-sm-5">
                 
                 <h1>{{page.title}}</h1>
                 {% for tag in page.tags.all %}
@@ -42,7 +42,15 @@
 
             <div class="article-body" >
             {% for article_item in page.article_items %}
+                {% if article_item.block_type == "code"%}
+                <div class="m-0 p-0">
                     {% include_block article_item %}
+                </div>
+                {% else %}
+                <div class="px-4 px-sm-5">
+                    {% include_block article_item %}
+                </div>
+                {% endif %}
             {% endfor %}
             </div>
         </div>
