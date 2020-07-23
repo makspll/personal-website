@@ -225,7 +225,6 @@ $article-sm-spacer: map-get($map: $spacers, $key:3);
     visibility: hidden;
     transform: scale(0);
     transition: ease-in-out 0.15s;
-    transition-delay: 0.7s;
 }
 .article-listing-article:hover .overlay{
     visibility: visible;
