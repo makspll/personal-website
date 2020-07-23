@@ -5,9 +5,9 @@
 {% load wagtailimages_tags %}
 
 {% block content_inside %}
-    <div class= "container-sm article-container p-4 p-sm-5 text-center shadow-lg flex-grow-1 ">
+    <div class= "container-sm article-container px-4 px-sm-5 text-center shadow-lg flex-grow-1 ">
         <nav aria-label="breadcrumb ">
-            <ol class="breadcrumb mb-0 mx-0">
+            <ol class="breadcrumb px-0 mb-0 mx-0 bg-white">
                 {% get_page_ancestors_without_root page as breadcrumbs %}
                 {% for breadcrumb in breadcrumbs %}
                     <li class="breadcrumb-item"><a class="text-decoration-none" href="{% pageurl breadcrumb %}">{{breadcrumb.title}}</a></li>
