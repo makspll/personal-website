@@ -16,7 +16,7 @@
         <div class="article-listing-body  p-5">
         {% for article_item in articles %}
 
-            <div class="article-listing-article position-relative text-left" >
+            <div class="article-listing-article position-relative text-left pt-3" >
                 <h2>{{article_item.title}}</h2>
                 
                 <div class="pl-2">
@@ -34,7 +34,7 @@
                 <a href="{% pageurl article_item %}" class="stretched-link"></a>
                 <p>{{article_item.blurb|richtext|truncatechars_html:600}}</p>
                 <div class="overlay">Read More</div>
-                <hr/>
+                <hr class="mb-0"/>
             </div>
         {% endfor %}
         </div>
