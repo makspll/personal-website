@@ -19,6 +19,8 @@ wagtail-blocks = "*"
 psycopg2 = "*"
 django-tz-detect = "*"
 wagtailcodeblock = "*"
+django-taggit = "*"
+django-taggit-templatetags2 = "*"
 
 [dev-packages]
 pylint = "*"

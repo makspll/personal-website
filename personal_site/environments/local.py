@@ -239,6 +239,9 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
     ('zig', 'Zig'),
 )
 
+## django-taggit-template-tags2
+INSTALLED_APPS = INSTALLED_APPS + ['taggit_templatetags2']
+
 ## custom apps
 
 INSTALLED_APPS = INSTALLED_APPS + ['website']

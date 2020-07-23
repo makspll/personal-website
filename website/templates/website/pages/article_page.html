@@ -18,15 +18,19 @@
         <div class="article  ">
             <header class="article-header">
                 
-                <h1 class="display-4">{{page.title}}</h1>
-                <div class="text-muted">
+                <h1>{{page.title}}</h1>
+                {% for tag in page.tags.all %}
+                    <span class="badge badge-secondary">{{tag.name}}</span>
+                {% endfor %}
+                <hr/>
 
+                <div class="article-tags">
                     {% localtime on %}
+
                     <span class="badge badge-light font-weight-normal"><b>Author: </b>{% if page.owner.first_name and page.owner.last_name%}{{page.owner.first_name}} {{page.owner.last_name}}{% else %}{{page.owner.username}}{% endif%}</span>
                     <span class="badge badge-light font-weight-normal"><b>Last Updated: </b>{{page.last_published_at}}</span>
                     {% block article_badges %}{% endblock%}
                     {% endlocaltime %}
-                
                 </div>
                 {% image page.featured_image original class="article-thumbnail img-fluid  img-thumbnail"%}
 

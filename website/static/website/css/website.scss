@@ -194,3 +194,15 @@ $article-sm-spacer: map-get($map: $spacers, $key:3);
 .article-container{
     max-width: 750px;
 }
+.article-listing-container{
+    max-width: 750px;
+}
+
+.article-tags {
+    line-height: 1.8rem;
+    font-size: 1.2rem;
+}
+
+.article-listing-thumbnail{
+    background-color: $primary;
+}

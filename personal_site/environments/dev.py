@@ -3,6 +3,9 @@ import debug_toolbar
 from django.urls import path,include
 import os 
 
+
+ALLOWED_HOSTS = ['*',]
+
 INSTALLED_APPS =  INSTALLED_APPS + [
     'debug_toolbar',]
 

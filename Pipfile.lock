@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "fde577ab36a4ceeed6e823d890f88f702d99ed73ebb20bdd456335709f9a89ac"
+            "sha256": "e0c9287bf5302732de9eb417ea97667061236749b6017872eb52b9a0db9d1b56"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -107,6 +107,12 @@
             ],
             "version": "==1.0.4"
         },
+        "django-classy-tags": {
+            "hashes": [
+                "sha256:ad6a25fc2b58a098f00d86bd5e5dad47922f5ca4e744bc3cccb7b4be5bc35eb1"
+            ],
+            "version": "==1.0.0"
+        },
         "django-compressor": {
             "hashes": [
                 "sha256:57ac0a696d061e5fc6fbc55381d2050f353b973fb97eee5593f39247bc0f30af",
@@ -158,7 +164,15 @@
                 "sha256:4a833bf71f4c2deddd9745924eee53be1c075d7f0020a06f12e29fa3d752732d",
                 "sha256:609b0223d8a652f3fae088b7fd29f294fdadaca2d7931d45c27d6c59b02fdf31"
             ],
+            "index": "pypi",
             "version": "==1.3.0"
+        },
+        "django-taggit-templatetags2": {
+            "hashes": [
+                "sha256:eb41d76bdcc4f4e2979dfa93e34f98380a92296c4658646c522b514b70040322"
+            ],
+            "index": "pypi",
+            "version": "==1.6.1"
         },
         "django-treebeard": {
             "hashes": [

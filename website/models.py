@@ -119,18 +119,30 @@ class ArticlePageMixin(models.Model):
     class Meta:
         abstract = True
 
+from modelcluster.fields import ParentalKey
+from modelcluster.contrib.taggit import ClusterTaggableManager
+from taggit.models import TaggedItemBase
+
+class ArticlePageTag(TaggedItemBase):
+    content_object = ParentalKey('website.ArticlePage', related_name='tagged_items')
 
 class ArticlePage(MetadataPageMixin,
                     Page,
                     NavigationPageMixin,
                     ArticlePageMixin,):
 
+    parent_page_types = ["website.ArticleListingPage"]
+
     template = "website/pages/article_page.html"
+
+    tags = ClusterTaggableManager(through=ArticlePageTag, blank=True)
 
     content_panels = \
         NavigationPageMixin.content_panels +\
         Page.content_panels +\
-        ArticlePageMixin.content_panels
+        ArticlePageMixin.content_panels + [
+            FieldPanel("tags"),
+        ]
 
 class ProjectArticlePage(ArticlePage):
     template = "website/pages/project_article_page.html"
@@ -142,4 +154,24 @@ class ProjectArticlePage(ArticlePage):
     content_panels = ArticlePage.content_panels + [
         FieldPanel("project_start_date"),
         FieldPanel("project_end_date"),
+    ]
+
+class ArticleListingPage(MetadataPageMixin,
+                            Page,
+                            NavigationPageMixin):
+    template = "website/pages/article_listing_page.html"
+
+    lead_paragraph = models.CharField(max_length=255,default="See latest articles.")
+
+    def get_context(self,request):
+        context = super().get_context(request)
+
+        children = self.get_descendants().specific()
+
+        context['articles'] = children 
+
+        return context
+
+    content_panels = Page.content_panels + NavigationPageMixin.content_panels + [
+        FieldPanel("lead_paragraph")
     ]
