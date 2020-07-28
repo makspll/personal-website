@@ -17,3 +17,4 @@ django-taggit
 django-taggit-templatetags2
 whitenoise[brotli]
 django-storages[dropbox]
+django-fontawesome-5
