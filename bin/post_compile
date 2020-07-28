@@ -3,6 +3,7 @@
 
 cd "$1" || exit 1
 
+pipenv graph
 
 echo "-----> Collecting static files for django-compressor"
 python manage.py collectstatic --noinput --traceback 
