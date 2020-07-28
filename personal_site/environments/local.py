@@ -247,6 +247,10 @@ INSTALLED_APPS = INSTALLED_APPS + ['taggit_templatetags2']
 INSTALLED_APPS = INSTALLED_APPS + ['website']
 
 
+# font awesome
+INSTALLED_APPS = INSTALLED_APPS + ['fontawesome_5']
+
+
 
 ## x-frame-options
 # allow embeding own content on site

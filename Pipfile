@@ -21,6 +21,7 @@ django-tz-detect = "*"
 wagtailcodeblock = "*"
 django-taggit = "*"
 django-taggit-templatetags2 = "*"
+django-fontawesome-5 = "*"
 
 [dev-packages]
 pylint = "*"
