@@ -10,7 +10,7 @@ def view_document(request, document_id, document_filename):
 
     # Remove "attachment" from response's Content-Disposition
     contdisp = response.get('Content-Disposition',"")
-    response['Content-Disposition'] = "inline; filename='{0}'".format(document_filename)
-    print(response)
+    response['Content-Disposition'] = 'inline; filename="{0}"'.format(document_filename)
+    print(response.headers)
     # Return the response
     return response
