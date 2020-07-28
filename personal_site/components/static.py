@@ -37,7 +37,7 @@ JS_FILTERS = [
     'compressor.filters.jsmin.JSMinFilter', # minify js
 ]
 CSS_FILTERS = [
-    'compressor.filters.css_default.CssAbsoluteFilter', # make url() absolutes
+    'compressor.filters.css_default.CssRelativeFilter', # make url() absolutes
     'compressor.filters.cssmin.CSSMinFilter', # minify css
     ]
 
