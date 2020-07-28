@@ -19,8 +19,8 @@ $event-content-bg: $gray-200;
 .main-timeline .year:before{content:"";border-top:35px solid lighten($color: $color-1n, $amount: 10);border-left:35px solid transparent;position:absolute;bottom:-35px;left:0}
 .main-timeline .event-content{text-align:left;padding:30px 20px;margin:0 45px 0 35px;background:$event-content-bg}
 
-.main-timeline .title{font-size:19px;font-weight:700;color:#504f54;margin:0 0 10px}
-.main-timeline .description{font-size:14px;color:#7d7b7b;margin:0}
+.main-timeline .title{color:#504f54;margin:0 0 10px}
+.main-timeline .description{color:#7d7b7b;margin:0}
 
 .main-timeline .event:nth-child(2n){padding:0 0 0 30px}
 .main-timeline .event:nth-child(2n) .event-icon{right:auto;left:-14.5px}

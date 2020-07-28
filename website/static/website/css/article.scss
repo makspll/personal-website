@@ -1,0 +1,49 @@
+$article-lg-spacer: map-get($map: $spacers, $key:5);
+$article-md-spacer: map-get($map: $spacers, $key:4);
+$article-sm-spacer: map-get($map: $spacers, $key:3);
+
+
+.article{
+    text-align: left;
+    &-tags{
+        line-height: 1.8rem;
+        font-size: 1.2rem;
+    }
+
+    &-container{
+        max-width: 750px;
+    }
+
+    &-header{
+        padding-top: $article-lg-spacer;
+        padding-bottom: $article-lg-spacer; 
+        text-align: left;
+
+        .article-thumbnail{
+            margin-top: $article-sm-spacer;
+            margin-bottom: $article-sm-spacer;
+        }
+
+        ~ hr.article-divider{
+            margin-top: 0;
+            margin-bottom: $article-lg-spacer;
+        }
+
+        p:last-of-type{
+            margin-bottom: 0;
+        }
+        
+    }
+
+    &-thumbnail{ 
+        background-color: $primary;
+        margin-top: $article-lg-spacer;
+        margin-bottom: $article-lg-spacer;
+
+        ~ .article-header{
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+
+}

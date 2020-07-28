@@ -10,6 +10,9 @@ from .snippets import Navbar, Footer, Header
 from wagtailmetadata.models import MetadataPageMixin
 from .blocks import PDFEmbeddBlock, TimelineBlock, ProjectListingBlock
 from datetime import date
+from wagtail.core.blocks import RichTextBlock
+from wagtail.core.fields import StreamField
+from wagtailcodeblock.blocks import CodeBlock
 
 # Create your models here.
 
@@ -56,8 +59,6 @@ class HeaderedPageMixin(models.Model):
     class Meta:
         abstract = True
 
-from wagtail.core.fields import StreamField
-from wagtailcodeblock.blocks import CodeBlock
 
 class FreeformContentMixin(models.Model):
 
@@ -65,7 +66,8 @@ class FreeformContentMixin(models.Model):
         ("pdf",PDFEmbeddBlock()),
         ("timeline",TimelineBlock()),
         ("code",CodeBlock()),
-        ("projects",ProjectListingBlock())
+        ("projects",ProjectListingBlock()),
+        ("text",RichTextBlock())
     ],null=True,blank=True)
 
     content_panels = [
@@ -90,7 +92,6 @@ class FreeformPage(MetadataPageMixin,
         FreeformContentMixin.content_panels
 
 
-from wagtail.core.blocks import RichTextBlock
 
 class ArticlePageMixin(models.Model):
     

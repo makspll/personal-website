@@ -5,7 +5,16 @@
 {% block content_inside %}
     <div class= "container-sm h-100 px-0 text-center shadow-lg d-flex flex-column flex-grow-1 justify-content-start">
         {% for block in page.freeform_items %}
-            {% include_block block %}
+            {% if block.block_type == "text" %}
+                <div class ="px-4">
+                {% include_block block %}
+                </div>
+            {% else %}
+            
+                {% include_block block %}
+            
+            {% endif %}
+            
             {% if not forloop.last %}
                 <hr/>
             {% endif %}
