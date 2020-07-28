@@ -3,8 +3,6 @@
 
 cd "$1" || exit 1
 
-pipenv install django-fontawesome-5
-
 echo "-----> Collecting static files for django-compressor"
 python manage.py collectstatic --noinput --traceback 
 
