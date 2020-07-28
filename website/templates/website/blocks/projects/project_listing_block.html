@@ -1,0 +1,9 @@
+{% load wagtailcore_tags %}
+
+<div class="project-listing list-unstyled p-2">
+    <h3 class="project-listing-heading h1 my-2">{{value.heading}}</h3>
+    {% for project_item in value.project_items %}
+        {% include_block project_item %}
+        <div class="my-2"></div>
+    {% endfor %}
+</div>

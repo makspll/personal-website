@@ -1,0 +1,85 @@
+
+@include media-breakpoint-up(sm) {
+    .navbar.navbar-expand-sm .underbar{
+        bottom:-$navbar-padding-y;
+        left:0;
+        right:0;
+        top: auto;
+        height:5px;
+        width: auto;
+        transform:scaleY(0) scaleX(0);
+        transform-origin: bottom center;
+    }
+
+
+
+}
+  
+@include media-breakpoint-up(md) {
+    .navbar.navbar-expand-md .underbar{
+        bottom:-$navbar-padding-y;
+        left:0;
+        right:0;
+        top: auto;
+        height:5px;
+        width: auto;
+        transform:scaleY(0) scaleX(0);
+        transform-origin: bottom center;
+    }
+
+
+}
+
+@include media-breakpoint-up(lg) {
+    .navbar.navbar-expand-lg .underbar{
+        bottom:-$navbar-padding-y;
+        left:0;
+        right:0;
+        top: auto;
+        height:5px;
+        width: auto;
+        transform:scaleY(0) scaleX(0);
+        transform-origin: bottom center;
+    }
+
+}
+
+.underbar-container{
+    position: relative;
+
+    &:hover .underbar {
+        visibility: visible;
+        background-color: $secondary;
+        transform:scaleY(1) scaleX(1);
+        transition:all 0.2s ease-in-out;
+    }
+
+    &.active .underbar{
+        visibility: visible;
+        background-color: $secondary;
+        transform:scaleY(1) scaleX(1);
+        transition:all 0.2s ease-in-out;
+    }
+}
+
+.underbar{
+    visibility: hidden;
+    position: absolute;
+    transition: 0.15s ease-out;
+    background-color: $secondary;
+    transform-origin: left center;
+    height: auto;
+    width: 5px;
+    left: 0;
+    top: 0;
+    bottom:0;
+    transform:scaleY(0) scaleX(0);
+}
+
+.navbar .underbar{
+    left: -$navbar-padding-x;
+}
+
+.navbar .underbar:last-of-type{
+    bottom: -$navbar-padding-y;
+}

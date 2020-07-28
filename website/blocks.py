@@ -2,21 +2,6 @@ from wagtail.core import blocks
 from django.db import models
 from django.utils.functional import cached_property
 
-# class StyleDependentBlockMixin(models.Model):
-#     def get_stylesheet_insert_template(self):
-#         return None
-    
-#     class Meta:
-#         abstract = True
-
-# class ScriptDependentBlockMixin(models.Model):
-#     def get_script_insert_template(self):
-#         return None
-    
-#     class Meta:
-#         abstract = True
-
-
 class BaseLinkBlock(blocks.StructBlock):
     """
     Base StructBlock class used to prevent DRY code.
@@ -114,3 +99,17 @@ class TimelineBlock(BaseStoryBlock):
     class Meta:
         template = "website/blocks/stories/timeline_block.html"
 
+class ProjectBlock(blocks.StructBlock):
+
+    project_page = blocks.PageChooserBlock(page_type="website.ProjectArticlePage")
+
+    class Meta:
+        template = "website/blocks/projects/project_block.html"
+
+class ProjectListingBlock(blocks.StructBlock):
+
+    heading = blocks.CharBlock(default="Recent Projects")
+    project_items = blocks.ListBlock(ProjectBlock())
+
+    class Meta:
+        template = "website/blocks/projects/project_listing_block.html"

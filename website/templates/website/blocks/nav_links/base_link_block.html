@@ -6,7 +6,7 @@
 
 <li class="nav-item
         {% if extra_css_classes %}{{extra_css_classes}}{% endif %} 
-        {% if value.children %} dropdown {% endif %}
+        {% if value.children %} dropdown btn-group {% endif %}
         {% if value.link == request.path or value.page.pk == page.pk%}active{% endif%}
         underbar-container
 ">
@@ -16,8 +16,8 @@
     <a 
         href="{% block url %}#{% endblock %}"
         class=" {% if is_child == "True" %} dropdown-item {% else %} nav-link {% endif %}
-                {% if value.children %}dropdown-toggle{% endif %}
                 {% if extra_css_classes %}{{extra_css_classes}}{% endif %}
+                
                 " 
         {% if value.children %} 
         id="navbarDropdownMenuLink" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" 
@@ -28,10 +28,19 @@
         {% endif %}
 
         {% if value.fa_icon_class%}
-        <i class="{% if value.display_text%} d-none d-md-block fa-fw {% endif %} {{value.fa_icon_class}}"></i>
-        {% endif %}    
+        <i class="{% if value.display_text %} d-none d-md-block fa-fw {% endif %} {{value.fa_icon_class}}"></i>
+        {% endif %}   
+        
+        {% if not is_child == "True" %}
         <div class="underbar"></div>
+        {% endif %}
     </a>
+
+    {% if value.children %}
+    <button type="button " class="nav-dropdown-button dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    {% endif %}
 
     {% if value.children %}
 

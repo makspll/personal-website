@@ -1,0 +1,17 @@
+
+.navbar-light .nav-dropdown-button{
+    color: $navbar-light-color;
+}
+.navbar-dark .nav-dropdown-button{
+    color: $navbar-dark-color; 
+}
+
+.nav-dropdown-button{
+    background-color: $primary;
+    border:none;
+    color: inherit;
+    
+}
+button.nav-dropdown-button:focus{
+    outline:none;
+}

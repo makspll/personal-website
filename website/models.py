@@ -8,7 +8,7 @@ from wagtail.search import index
 from wagtail.core.fields import RichTextField
 from .snippets import Navbar, Footer, Header
 from wagtailmetadata.models import MetadataPageMixin
-from .blocks import PDFEmbeddBlock, TimelineBlock
+from .blocks import PDFEmbeddBlock, TimelineBlock, ProjectListingBlock
 from datetime import date
 
 # Create your models here.
@@ -65,6 +65,7 @@ class FreeformContentMixin(models.Model):
         ("pdf",PDFEmbeddBlock()),
         ("timeline",TimelineBlock()),
         ("code",CodeBlock()),
+        ("projects",ProjectListingBlock())
     ],null=True,blank=True)
 
     content_panels = [

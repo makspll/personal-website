@@ -1,10 +1,11 @@
 from django.db import models
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel
 from wagtail.core.fields import StreamField
 from wagtail.images.edit_handlers import ImageChooserPanel
-from wagtail.core.models import Page
+from wagtail.core.models import Page, Site
 from wagtail.snippets.models import register_snippet
 from .blocks import ExternalLinkWithChildrenBlock, PageLinkWithChildrenBlock, SocialMediaLinkBlock
+import json
 
 class Navbar(models.Model):
     """
@@ -12,15 +13,61 @@ class Navbar(models.Model):
     snippets UI. 
     """
     name = models.CharField(max_length=255)
+
+    generate_items_on_next_save = models.BooleanField(default=False,help_text="override menu_items below and find links automatically using the include in navigation page option when you next click 'save'")
+    
     menu_items = StreamField([
         ('external_link', ExternalLinkWithChildrenBlock()),
         ('page_link', PageLinkWithChildrenBlock()),
-        ],)
+        ],null=True,blank=True)
 
     panels = [
         FieldPanel('name'),
-        StreamFieldPanel('menu_items')
+        MultiFieldPanel([
+            FieldPanel('generate_items_on_next_save',heading="Menu Items"),
+            StreamFieldPanel('menu_items'),
+        ])
+
     ]
+
+    def save(self,*args,**kwargs):
+        if self.generate_items_on_next_save:
+            menu_items = []
+
+            default_site = Site.objects.all().get(is_default_site=True)
+            root = default_site.root_page
+            #include root page in navigation
+            first_level = list(root.get_children()) + [root]
+    
+            for page in first_level:
+                if page == root:
+                    child_pages = []
+                else:
+                    child_pages = page.get_children().in_menu()
+
+                child_items = [{"type":"page_link",
+                                "value":{
+                                    "display_text": x.title,
+                                    "fa_icon_class":"",
+                                    "page":x.pk,
+                                },
+                                } for x in child_pages]
+
+                menu_items.append({
+                    "type":"page_link",
+                    "value":{
+                        "display_text":page.title,
+                        "fa_icon_class":"",
+                        "page":page.pk,
+                        "children":child_items
+                        }
+                    })
+            
+            raw_json = json.dumps(menu_items)
+            self.generate_items_on_next_save = False
+            self.menu_items = raw_json
+
+        return super().save(*args,**kwargs)
 
     def __str__(self):
         return self.name

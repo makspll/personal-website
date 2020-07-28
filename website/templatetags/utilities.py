@@ -1,6 +1,7 @@
 from django import template
 import uuid 
 import re
+from wagtail.core.models import Page 
 
 register = template.Library()
 
