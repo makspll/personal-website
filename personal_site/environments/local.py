@@ -248,7 +248,7 @@ INSTALLED_APPS = INSTALLED_APPS + ['website']
 
 
 # font awesome
-INSTALLED_APPS = INSTALLED_APPS + ['fontawesome_5']
+INSTALLED_APPS = INSTALLED_APPS + ['fontawesome_5',]
 
 
 
