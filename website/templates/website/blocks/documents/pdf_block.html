@@ -17,7 +17,6 @@
 </style>
 {% endcompress %}
 
-{% compress js inline %}
 <script>
     document.addEventListener('DOMContentLoaded', function(){
         PDFObject.embed("{% url "view_document" value.document.id value.document.filename %}", "#document-holder");
@@ -25,7 +24,6 @@
 
    
 </script>
-{% endcompress %}
 
 {% endblock %}
 
