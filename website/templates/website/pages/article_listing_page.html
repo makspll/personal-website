@@ -22,7 +22,7 @@
                     <div class="text-muted h6">
 
                         <span><i class="far fa-clock fa-sm" aria-hidden="true"></i></span>
-                        <span>{{article_item.last_published_at|date:'j/n/Y'}}</span>
+                        <span>{{article_item.first_published_at|date:'j/n/Y'}}</span>
                         <br/>
                         {% for tag in article_item.tags.all %}
                             <span class="badge badge-secondary mt-2"> {{ tag.name }} </span>
