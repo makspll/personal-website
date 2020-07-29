@@ -5,8 +5,8 @@
 
 {% block article_badges %}
 <br/>
-<span class="badge badge-light font-weight-normal"><b>Project Started: </b>{% if page.project_start_date %}{{page.project_start_date}}{% else %}Not Started{% endif %}</span>
-<span class="badge badge-light font-weight-normal"><b>Project Ended: </b>{% if page.project_end_date%}{{page.project_end_date}}{% else %}In Progress{% endif %}</span>
+<span class="badge badge-light font-weight-normal"><b>Project Started:</b> {% if page.project_start_date %}{{page.project_start_date}}{% else %}Not Started{% endif %}</span>
+<span class="badge badge-light font-weight-normal"><b>Project Ended:</b> {% if page.project_end_date%}{{page.project_end_date}}{% else %}In Progress{% endif %}</span>
 {% endblock %}
 
 {% endlocaltime%}

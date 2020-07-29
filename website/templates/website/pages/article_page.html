@@ -27,8 +27,8 @@
                 <div class="article-tags">
                     {% localtime on %}
 
-                    <span class="badge badge-light font-weight-normal"><b>Author: </b>{% if page.owner.first_name and page.owner.last_name%}{{page.owner.first_name}} {{page.owner.last_name}}{% else %}{{page.owner.username}}{% endif%}</span>
-                    <span class="badge badge-light font-weight-normal"><b>Last Updated: </b>{{page.last_published_at}}</span>
+                    <span class="badge badge-light font-weight-normal"><b>Author:</b> {% if page.owner.first_name and page.owner.last_name%}{{page.owner.first_name}} {{page.owner.last_name}}{% else %}{{page.owner.username}}{% endif%}</span>
+                    <span class="badge badge-light font-weight-normal"><b>Last Updated:</b> {{page.last_published_at}}</span>
                     {% block article_badges %}{% endblock%}
                     {% endlocaltime %}
                 </div>
