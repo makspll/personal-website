@@ -1,6 +1,7 @@
 from wagtail.documents.views import serve
 import requests
 from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 
 def view_document(request, document_id, document_filename):
     """
@@ -11,15 +12,16 @@ def view_document(request, document_id, document_filename):
     
     print( type(response))
     if isinstance(response,HttpResponseRedirect):
-        print(11)
         response = requests.get(response.url)
-        print(22)
-        response.headers['Content-Disposition'] = 'inline; filename="{0}"'.format(document_filename)
-        print(33)
+        # we convert to django response from python response, otherwise middleware freaks out
+        response = HttpResponse(
+            content=response.content,
+            status=response.status_code,
+            content_type=response.headers['Content-Type']
+        )
+        response['Content-Disposition'] = 'inline; filename="{0}"'.format(document_filename)
     else:
-        print(1)
         # Remove "attachment" from response's Content-Disposition
         response['Content-Disposition'] = 'inline; filename="{0}"'.format(document_filename)
-        print(2)
     # Return the response
     return response
