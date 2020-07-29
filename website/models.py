@@ -114,6 +114,7 @@ class ArticlePageMixin(models.Model):
         ("code", CodeBlock()),
     ],null=True,blank=True)
 
+        
     show_in_listings = models.BooleanField(default=True)
 
     content_panels = [
@@ -174,7 +175,7 @@ class ArticleListingPage(MetadataPageMixin,
     def get_context(self,request):
         context = super().get_context(request)
 
-        children = self.get_descendants().specific()
+        children = self.get_descendants().order_by('-first_published_at').specific()
 
         context['articles'] = children 
 
