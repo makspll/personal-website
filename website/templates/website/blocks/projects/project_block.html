@@ -5,7 +5,7 @@
     
     {% image value.project_page.featured_image max-250x250 class="rounded " %}
     <div class="project-listing-project-body">
-        <h4 class="h2 mb-0">{%if value.override_title%}{{value.override_title}}{% else %}value.project_page.title{% endif %}</h4>
+        <h4 class="h2 mb-0">{%if value.override_title%}{{value.override_title}}{% else %}{{value.project_page.title}}{% endif %}</h4>
         <div class="text-muted h6">
             <span><i class="fa fa-hourglass-start fa-sm" aria-hidden="true"></i></span>
             <span>{% if value.project_page.project_start_date %}{{value.project_page.project_start_date|date:'j/n/Y'}}{% else %}Not Started{% endif %} -</span>
