@@ -108,17 +108,20 @@ class ArticlePageMixin(models.Model):
     blurb = RichTextField(features=[
             'bold','italic','ol','ul','hr','link','document-link'
         ])
-        
+
     article_items = StreamField([
         ("text",RichTextBlock()),
         ("code", CodeBlock()),
     ],null=True,blank=True)
+
+    show_in_listings = models.BooleanField(default=True)
 
     content_panels = [
         FieldPanel("short_title"),
         ImageChooserPanel("featured_image"),
         FieldPanel("blurb"),
         StreamFieldPanel("article_items"),
+        FieldPanel("show_in_listings"),
     ]
 
     class Meta:
