@@ -10,7 +10,7 @@ def view_document(request, document_id, document_filename):
     response = serve.serve(request, document_id, document_filename)
     
     print( type(response))
-    if response isinstance(response,HttpResponseRedirect):
+    if isinstance(response,HttpResponseRedirect):
         response = requests.get(response.url)
 
     # Remove "attachment" from response's Content-Disposition
