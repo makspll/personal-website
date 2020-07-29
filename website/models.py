@@ -105,11 +105,12 @@ class ArticlePageMixin(models.Model):
         related_name="+",
     )
 
-    blurb = RichTextField()
-    article_items = StreamField([
-        ("text",RichTextBlock(features=[
+    blurb = RichTextField(features=[
             'bold','italic','ol','ul','hr','link','document-link'
-        ])),
+        ])
+        
+    article_items = StreamField([
+        ("text",RichTextBlock()),
         ("code", CodeBlock()),
     ],null=True,blank=True)
 
