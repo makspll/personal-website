@@ -12,8 +12,9 @@ def view_document(request, document_id, document_filename):
     print( type(response))
     if isinstance(response,HttpResponseRedirect):
         response = requests.get(response.url)
-
-    # Remove "attachment" from response's Content-Disposition
-    response['Content-Disposition'] = 'inline; filename="{0}"'.format(document_filename)
+        response.headers['Content-Disposition'] = 'inline; filename="{0}"'.format(document_filename)
+    else:
+        # Remove "attachment" from response's Content-Disposition
+        response['Content-Disposition'] = 'inline; filename="{0}"'.format(document_filename)
     # Return the response
     return response
