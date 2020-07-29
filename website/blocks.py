@@ -108,7 +108,7 @@ class ProjectBlock(blocks.StructBlock):
 
 class ProjectListingBlock(blocks.StructBlock):
 
-    heading = blocks.CharBlock(default="Recent Projects")
+    heading = blocks.CharBlock(default="Recent Projects", required=False)
     project_items = blocks.ListBlock(ProjectBlock())
 
     class Meta:
