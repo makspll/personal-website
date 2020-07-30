@@ -180,5 +180,4 @@ class ArticleListingPage(MetadataPageMixin,
         return context
 
     content_panels = Page.content_panels + NavigationPageMixin.content_panels + [
-        FieldPanel("lead_paragraph")
     ]
