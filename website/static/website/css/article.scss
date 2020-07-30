@@ -8,20 +8,18 @@ $article-sm-spacer: map-get($map: $spacers, $key:3);
 
     &-body .rich-text {
         h2{
-            margin-top: map-get($map: $spacers, $key:4);
+            margin-top: map-get($map: $spacers, $key:5);
         }
 
         h3{
-            margin-top: map-get($map: $spacers, $key:3);
+            margin-top: map-get($map: $spacers, $key:4);
 
         }
         h4{
-            margin-top: map-get($map: $spacers, $key:2);
+            margin-top: map-get($map: $spacers, $key:3);
         }
 
-        h5,h6{
-            margin-top: map-get($map: $spacers, $key:1);
-        }
+
     }
 
     &-tags{
