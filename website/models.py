@@ -170,8 +170,6 @@ class ArticleListingPage(MetadataPageMixin,
                             NavigationPageMixin):
     template = "website/pages/article_listing_page.html"
 
-    lead_paragraph = models.CharField(max_length=255,default="See latest articles.")
-
     def get_context(self,request):
         context = super().get_context(request)
 

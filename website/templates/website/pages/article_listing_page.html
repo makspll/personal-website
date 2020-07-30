@@ -6,13 +6,6 @@
 {% block content_inside %}
     <div class= "article-listing container-sm flex-grow-1 shadow-lg p-0">
 
-        <div class="jumbotron jumbotron-fluid text-center">
-            <div class="container">
-                <h1 class="display-4">{{page.title}}</h1>
-                <p class="lead">{{page.lead_paragraph}}</p>
-            </div>
-        </div>
-
         <div class="article-listing-body  p-5">
         {% for article_item in articles %}
             {% if article_item.show_in_listings %}
