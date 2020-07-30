@@ -1,6 +1,12 @@
 {% extends "website/bases/page_base.html" %}
 {% load utilities %}
 {% load wagtailcore_tags%}
+{% load wagtailcore_images %}
+
+{% block head %}
+{% image page.header.background_image max-1920x1080 as header_bg_image %}
+<link rel="preload" href="{{header_bg_image.url}}" as="image" type="image/*">
+{% endblock %}
 
 {% block content %}
     <div class="d-flex flex-column min-vh-100">
