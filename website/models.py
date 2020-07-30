@@ -167,6 +167,7 @@ class ProjectArticlePage(ArticlePage):
 
 class ArticleListingPage(MetadataPageMixin,
                             Page,
+                            HeaderedPageMixin,
                             NavigationPageMixin):
     template = "website/pages/article_listing_page.html"
 
@@ -179,5 +180,5 @@ class ArticleListingPage(MetadataPageMixin,
 
         return context
 
-    content_panels = Page.content_panels + NavigationPageMixin.content_panels + [
+    content_panels = Page.content_panels +HeaderedPageMixin.content_panels + NavigationPageMixin.content_panels + [
     ]
