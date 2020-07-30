@@ -1,7 +1,6 @@
 from wagtail.core import blocks
 from django.db import models
 from django.utils.functional import cached_property
-from wagtailorderable.models import Orderable
 
 class BaseLinkBlock(blocks.StructBlock):
     """
