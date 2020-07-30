@@ -240,15 +240,15 @@ WAGTAIL_CODE_BLOCK_LANGUAGES = (
 )
 
 ## django-taggit-template-tags2
-INSTALLED_APPS = INSTALLED_APPS + ['taggit_templatetags2']
+INSTALLED_APPS += ['taggit_templatetags2']
 
 ## custom apps
 
-INSTALLED_APPS = INSTALLED_APPS + ['website']
+INSTALLED_APPS += ['website']
 
 
 # font awesome
-INSTALLED_APPS = INSTALLED_APPS + ['fontawesome_5',]
+INSTALLED_APPS += ['fontawesome_5',]
 
 
 
