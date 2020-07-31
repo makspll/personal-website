@@ -12,5 +12,3 @@ python manage.py compress --traceback
 echo "-----> Collecting static files after django-compressor"
 python manage.py collectstatic --noinput --traceback 
 
-echo "-----> Installing Wand"
-pip install Wand
