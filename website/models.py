@@ -10,7 +10,7 @@ from .snippets import Navbar, Footer, Header
 from wagtailmetadata.models import MetadataPageMixin
 from .blocks import PDFEmbeddBlock, TimelineBlock, ProjectListingBlock
 from datetime import date
-from wagtail.core.blocks import RichTextBlock
+from wagtail.core.blocks import RichTextBlock, RawHTMLBlock
 from wagtail.core.fields import StreamField
 from wagtailcodeblock.blocks import CodeBlock
 
@@ -112,6 +112,7 @@ class ArticlePageMixin(models.Model):
     article_items = StreamField([
         ("text",RichTextBlock()),
         ("code", CodeBlock()),
+        ("html",RawHTMLBlock()),
     ],null=True,blank=True)
 
         
