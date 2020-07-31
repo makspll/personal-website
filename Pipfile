@@ -23,6 +23,7 @@ django-taggit = "*"
 django-taggit-templatetags2 = "*"
 django-fontawesome-5 = "*"
 django-debug-toolbar = "*"
+wand = "*"
 
 [dev-packages]
 pylint = "*"
