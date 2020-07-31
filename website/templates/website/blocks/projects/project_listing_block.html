@@ -7,6 +7,10 @@
     
     {% for project_item in value.project_items %}
         {% include_block project_item %}
+        
+        {% if not forloop.last %}
         <div class="my-2"></div>
+        {% endif %}
+        
     {% endfor %}
 </div>
