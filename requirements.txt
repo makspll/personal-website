@@ -1,4 +1,3 @@
-Wand
 Django
 django-split-settings
 python-dotenv
