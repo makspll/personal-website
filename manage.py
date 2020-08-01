@@ -2,7 +2,6 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-from dotenv import load_dotenv
 
 def main():
 
@@ -10,10 +9,10 @@ def main():
     # so that they can be accessed in 
     # the entire project using os.getenv or os.environ
     # could flip out on deployments without .env file
-    try:
+    dotenv_file = os.path.join(".env")
+    if os.pat.isfile(dotenv_file):
+        from dotenv import load_dotenv
         load_dotenv(verbose=True,override=True)
-    except:
-        pass
         
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'personal_site.settings')
 
