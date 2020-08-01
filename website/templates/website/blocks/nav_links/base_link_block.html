@@ -8,8 +8,11 @@
         {% if extra_css_classes %}{{extra_css_classes}}{% endif %} 
         {% if value.children %} dropdown btn-group {% endif %}
         {% if value.link == request.path or value.page.pk == page.pk%}active{% endif%}
-        underbar-container
-">
+        underbar-container" 
+        {% if value.fa_icon_class %}
+        data-toggle="tooltip" data-placement="bottom" title="{{value.display_text}}"
+        {% endif %}
+>
 
 {% endif %}
 
