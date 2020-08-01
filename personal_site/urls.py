@@ -36,6 +36,7 @@ except:
     url_additional_patterns = []
 urlpatterns = url_additional_patterns + [
     path('sitemap.xml/',sitemap),
+    path('robots.txt/', include('robots.urls')),
     path('tz_detect/', include(tz_urls)),
     path('admin/', admin.site.urls),
     path('cms/',include(wagtailadmin_urls)),

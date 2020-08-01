@@ -251,7 +251,7 @@ INSTALLED_APPS += ['website']
 INSTALLED_APPS += ['fontawesome_5',]
 
 # sitemap
-INSTALLED_APPS += ['django.contrib.sitemaps']
+INSTALLED_APPS += ['django.contrib.sitemaps','wagtail.contrib.modeladmin','robots']
 
 ## x-frame-options
 # allow embeding own content on site
