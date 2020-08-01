@@ -1,0 +1,60 @@
+{% extends "website/bases/navigation_base.html"%}
+{% load utilities %}
+{% load wagtailcore_tags %}
+{% load tz%}
+{% load wagtailimages_tags %}
+
+{% block content_inside %}
+    <div class= "container-sm article-container text-center shadow-lg flex-grow-1 px-0">
+        <nav aria-label="breadcrumb ">
+            <ol class="breadcrumb  pt-4 px-4 px-sm-5 bg-white">
+                {% get_page_ancestors_without_root page as breadcrumbs %}
+                {% for breadcrumb in breadcrumbs %}
+                    <li class="breadcrumb-item"><a class="text-decoration-none" href="{% pageurl breadcrumb %}">{{breadcrumb.title}}</a></li>
+                {% endfor %}
+                <li class="breadcrumb-item active " aria-current="page">{{page.short_title}}</li>
+            </ol>
+        </nav>
+        <div class="article  ">
+            <header class="article-header pt-0 px-4 px-sm-5">
+                
+                <h1>{{page.title}}</h1>
+                <h2 class="text-muted h4">{{page.tag_line}}</h2>
+                {% for tag in page.tags.all %}
+                    <span class="badge badge-secondary">{{tag.name}}</span>
+                {% endfor %}
+                <hr/>
+
+                <div class="article-tags">
+                    {% localtime on %}
+
+                    <span class="badge badge-light font-weight-normal"><b>Author:</b> {% if page.owner.first_name and page.owner.last_name%}{{page.owner.first_name}} {{page.owner.last_name}}{% else %}{{page.owner.username}}{% endif%}</span>
+                    <span class="badge badge-light font-weight-normal"><b>Last Updated:</b> {{page.last_published_at}}</span>
+                    {% block article_badges %}{% endblock%}
+                    {% endlocaltime %}
+                </div>
+                {% image page.featured_image original class="article-thumbnail img-fluid  img-thumbnail"%}
+                
+                {{page.blurb|richtext}}
+
+            </header>
+            
+            <hr class="article-divider mx-4 mx-sm-5"/>
+
+            <div class="article-body" >
+            {% for article_item in page.article_items %}
+                {% if article_item.block_type == "code"%}
+                <div class="m-0 p-0">
+                    {% include_block article_item %}
+                </div>
+                {% else %}
+                <div class="px-4 px-sm-5">
+                    {% include_block article_item %}
+                </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
