@@ -22,13 +22,11 @@ $article-sm-spacer: map-get($map: $spacers, $key:3);
         &:first-child{
             margin-top: 0;
         }
-        div{
-            & > {
-                iframe,embed,video,object{
-                    @extend .embed-responsive-item;
-                    @extend .embed-responsive-16by9;
-                }
-            }
+
+        iframe,embed,video,object{
+            @extend .embed-responsive-item;
+            @extend .embed-responsive-16by9;
+            text-align: center;
         }
     }
 
