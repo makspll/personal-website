@@ -9,7 +9,12 @@ def main():
     # Reads .env file in main project directory 
     # so that they can be accessed in 
     # the entire project using os.getenv or os.environ
-    load_dotenv(verbose=True,override=True)
+    # could flip out on deployments without .env file
+    try:
+        load_dotenv(verbose=True,override=True)
+    except:
+        pass
+        
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'personal_site.settings')
 
     try:
