@@ -23,6 +23,11 @@ $article-sm-spacer: map-get($map: $spacers, $key:3);
             margin-top: 0;
         }
 
+        // only divs in rich text fields will be embedds 
+        div{
+            text-align: center;
+        }
+
         iframe,embed,video,object{
             @extend .embed-responsive-item;
             @extend .embed-responsive-16by9;
