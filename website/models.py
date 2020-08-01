@@ -105,9 +105,10 @@ class ArticlePageMixin(models.Model):
         related_name="+",
     )
 
+    tag_line = models.CharField(max_length=255,default="Describe your article in a few words")
     blurb = RichTextField(features=[
             'bold','italic','ol','ul','hr','link','document-link'
-        ])
+        ],default="introduce your article")
 
     article_items = StreamField([
         ("text",RichTextBlock()),

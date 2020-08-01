@@ -131,3 +131,4 @@ dmypy.json
 # personal_site
 
 static_root/
+media_root/
