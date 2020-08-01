@@ -250,7 +250,8 @@ INSTALLED_APPS += ['website']
 # font awesome
 INSTALLED_APPS += ['fontawesome_5',]
 
-
+# sitemap
+INSTALLED_APPS += ['django.contrib.sitemaps']
 
 ## x-frame-options
 # allow embeding own content on site

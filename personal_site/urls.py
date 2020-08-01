@@ -27,14 +27,15 @@ from django.template import loader
 
 from website import urls as website_urls
 from tz_detect import urls as tz_urls
+from wagtail.contrib.sitemaps.views import sitemap
 
 ## allow settings to add env dependent patterns
 try:
     url_additional_patterns = settings.DEFAULT_URL_PATTERNS
 except:
     url_additional_patterns = []
-
 urlpatterns = url_additional_patterns + [
+    path('sitemap.xml/',sitemap),
     path('tz_detect/', include(tz_urls)),
     path('admin/', admin.site.urls),
     path('cms/',include(wagtailadmin_urls)),

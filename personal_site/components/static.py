@@ -47,7 +47,6 @@ COMPRESS_FILTERS={
 }
 
 # use brotli compression
-
 COMPRESS_STORAGE = 'compressor.storage.BrotliCompressorFileStorage'
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
