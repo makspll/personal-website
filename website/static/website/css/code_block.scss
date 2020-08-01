@@ -1,3 +1,8 @@
  .code-toolbar{
      font-size: 0.9rem;
  }
+
+ .code-toolbar .token.operator{
+     // for some reason this has white background
+     background-color: none !important;
+ }
