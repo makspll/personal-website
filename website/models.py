@@ -120,6 +120,7 @@ class ArticlePageMixin(models.Model):
     show_in_listings = models.BooleanField(default=True)
 
     content_panels = [
+        FieldPanel("tag_line"),
         FieldPanel("short_title"),
         ImageChooserPanel("featured_image"),
         FieldPanel("blurb"),
