@@ -6,32 +6,37 @@ $article-sm-spacer: map-get($map: $spacers, $key:3);
 .article{
     text-align: left;
 
-    &-body .rich-text {
-        h2{
-            margin-top: map-get($map: $spacers, $key:5) * 1.5;
-        }
-
-        h3{
-            margin-top: map-get($map: $spacers, $key:4) * 1.5;
-
-        }
-        h4{
-            margin-top: map-get($map: $spacers, $key:3) * 1.5;
-        }
+    &-body 
 
         & div:first-of-type > .rich-text > *:first-child{
             margin-top: 0;
         }
+        
+        .rich-text {
+            h2{
+                margin-top: map-get($map: $spacers, $key:5) * 1.5;
+            }
 
-        // only divs in rich text fields will be embedds 
-        div{
-            text-align: center;
-        }
+            h3{
+                margin-top: map-get($map: $spacers, $key:4) * 1.5;
 
-        iframe,embed,video,object{
-            @extend .embed-responsive-item;
-            @extend .embed-responsive-16by9;
-            text-align: center;
+            }
+            h4{
+                margin-top: map-get($map: $spacers, $key:3) * 1.5;
+            }
+
+            
+
+            // only divs in rich text fields will be embedds 
+            div{
+                text-align: center;
+            }
+
+            iframe,embed,video,object{
+                @extend .embed-responsive-item;
+                @extend .embed-responsive-16by9;
+                text-align: center;
+            }
         }
     }
 
