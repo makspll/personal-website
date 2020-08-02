@@ -26,7 +26,7 @@
   {% meta_tags %}
 
   <!--css-->
-  {% compress css defer %}
+  {% compress css %}
   {% block override_css %}
   <link rel="stylesheet" href="{% static "website/css/website.scss" %}" type="text/x-scss">
   {% endblock %}
