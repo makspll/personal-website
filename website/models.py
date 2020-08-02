@@ -177,7 +177,7 @@ class ArticleListingPage(MetadataPageMixin,
     def get_context(self,request):
         context = super().get_context(request)
 
-        children = self.get_descendants().order_by('-first_published_at').specific()
+        children = self.get_descendants().live().order_by('-first_published_at').specific()
 
         context['articles'] = children 
 
