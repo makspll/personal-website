@@ -3,7 +3,7 @@
 
 <li class="project-listing-project p-3 border position-relative">
     
-    {% image value.project_page.featured_image fill-25x250-c100 class="rounded align-self-center img-fluid" %}
+    {% image value.project_page.featured_image fill-250x250-c100 class="rounded align-self-center img-fluid" %}
     <div class="project-listing-project-body">
         <h4 class="h2 mb-0">{%if value.override_title%}{{value.override_title}}{% else %}{{value.project_page.title}}{% endif %}</h4>
         <div class="text-muted h6">
