@@ -19,7 +19,7 @@ $article-sm-spacer: map-get($map: $spacers, $key:3);
             margin-top: map-get($map: $spacers, $key:3) * 2;
         }
 
-        & > *:first-child{
+        &:first-of-type > *:first-child{
             margin-top: 0;
         }
 
