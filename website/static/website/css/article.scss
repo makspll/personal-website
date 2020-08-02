@@ -6,7 +6,7 @@ $article-sm-spacer: map-get($map: $spacers, $key:3);
 .article{
     text-align: left;
 
-    &-body 
+    &-body{
 
         & div:first-of-type > .rich-text > *:first-child{
             margin-top: 0;
