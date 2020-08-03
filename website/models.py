@@ -13,6 +13,7 @@ from datetime import date
 from wagtail.core.blocks import RichTextBlock, RawHTMLBlock
 from wagtail.core.fields import StreamField
 from wagtailcodeblock.blocks import CodeBlock
+from wagtail.api import APIField
 
 # Create your models here.
 
@@ -74,6 +75,9 @@ class FreeformContentMixin(models.Model):
         StreamFieldPanel("freeform_items"),
     ]
 
+    api_fields = [
+        APIField("freeform_items"),
+    ]
     class Meta:
         abstract = True
 
@@ -91,7 +95,9 @@ class FreeformPage(MetadataPageMixin,
         Page.content_panels +\
         FreeformContentMixin.content_panels
 
+    api_fields = FreeformContentMixin.api_fields + [
 
+    ]
 
 class ArticlePageMixin(models.Model):
     
@@ -128,6 +134,16 @@ class ArticlePageMixin(models.Model):
         FieldPanel("show_in_listings"),
     ]
 
+    api_fields = [
+        APIField('tag_line'),
+        APIField('short_title'),
+        APIField('featured_image'),
+        APIField('blurb'),
+        APIField('article_items'),
+        APIField('show_in_listings'),
+
+    ]
+
     class Meta:
         abstract = True
 
@@ -155,6 +171,10 @@ class ArticlePage(MetadataPageMixin,
         ArticlePageMixin.content_panels + [
             FieldPanel("tags"),
         ]
+    api_fields = ArticlePageMixin.api_fields + [
+        APIField("tags")
+    ]
+    
 
 class ProjectArticlePage(ArticlePage):
     template = "website/pages/project_article_page.html"
@@ -166,6 +186,11 @@ class ProjectArticlePage(ArticlePage):
     content_panels = ArticlePage.content_panels + [
         FieldPanel("project_start_date"),
         FieldPanel("project_end_date"),
+    ]
+
+    api_fields = ArticlePage.api_fields + [
+        APIField("project_start_date"),
+        APIField("project_end_date"),
     ]
 
 class ArticleListingPage(MetadataPageMixin,
@@ -185,3 +210,4 @@ class ArticleListingPage(MetadataPageMixin,
 
     content_panels = Page.content_panels +HeaderedPageMixin.content_panels + NavigationPageMixin.content_panels + [
     ]
+

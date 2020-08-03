@@ -28,6 +28,7 @@ from django.template import loader
 from website import urls as website_urls
 from tz_detect import urls as tz_urls
 from wagtail.contrib.sitemaps.views import sitemap
+from .api import api_router
 
 ## allow settings to add env dependent patterns
 try:
@@ -39,6 +40,7 @@ urlpatterns = url_additional_patterns + [
     path('robots.txt/', include('robots.urls')),
     path('tz_detect/', include(tz_urls)),
     path('admin/', admin.site.urls),
+    path('api/v2/', api_router.urls),
     path('cms/',include(wagtailadmin_urls)),
     path('documents/',include(wagtaildocs_urls)),
     path('',include(wagtail_urls)),

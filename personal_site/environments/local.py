@@ -253,6 +253,10 @@ INSTALLED_APPS += ['fontawesome_5',]
 # sitemap
 INSTALLED_APPS += ['django.contrib.sitemaps','wagtail.contrib.modeladmin','robots']
 
+
+# API
+INSTALLED_APPS += ['wagtail.api.v2','rest_framework']
+
 ## x-frame-options
 # allow embeding own content on site
 X_FRAME_OPTIONS = 'SAMEORIGIN'
