@@ -14,3 +14,13 @@
         @extend .d-block;
     }
 }
+
+.responsive-object{
+    @extend .embed-responsive;
+    @extend .embed-responsive-4by3;
+    
+    & > iframe,embed,video,object{
+        @extend .embed-responsive-item;
+    }
+}
+

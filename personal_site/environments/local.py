@@ -19,6 +19,7 @@ INSTALLED_APPS = INSTALLED_APPS + [
 MIDDLEWARE = MIDDLEWARE + ['wagtail.contrib.redirects.middleware.RedirectMiddleware',]
 
 WAGTAIL_SITE_NAME = 'mozolewskimaks.co.uk'
+WAGTAILEMBEDS_RESPONSIVE_HTML = True
 
 ## wagtail-metadata
 
