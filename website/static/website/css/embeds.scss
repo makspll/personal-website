@@ -1,0 +1,16 @@
+.richtext-image{
+    @extend .img-fluid;
+
+    .left{
+        @extend .float-left;
+    }
+
+    .full-width{
+        @extend .full-width;
+    }
+
+    .right{
+        @extend .mx-auto;
+        @extend .d-block;
+    }
+}
