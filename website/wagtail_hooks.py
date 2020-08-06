@@ -5,6 +5,7 @@ from wagtail.admin.rich_text.converters.html_to_contentstate import (
 )
 from wagtail.core.rich_text import LinkHandler
 from django.utils.html import escape
+from wagtail.contrib.redirects.models import Redirect
 
 
 # register bootstrap sample output
@@ -107,3 +108,14 @@ class NoFollowExternalLinkHandler(LinkHandler):
 @hooks.register('register_rich_text_features')
 def register_external_link(features):
     features.register_link_type(NoFollowExternalLinkHandler)
+
+# Create redirect when editing slugs
+@hooks.register('before_edit_page')
+def create_redirect_on_slug_change(request, page):
+    if request.method == 'POST':
+        if page.slug != request.POST['slug'] and page.url:
+            Redirect.objects.create(
+                    old_path=page.url[:-1],
+                    site=page.get_site(),
+                    redirect_page=page
+                )
