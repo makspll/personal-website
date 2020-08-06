@@ -8,7 +8,7 @@ STATIC_URL = '/static/'
 
 # source files at top level are included
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,"static_src") # original files
+    os.path.join(BASE_DIR,"static_src"), # original files
 ]
 
 
