@@ -3,6 +3,8 @@ import wagtail.admin.rich_text.editors.draftail.features as draftail_features
 from wagtail.admin.rich_text.converters.html_to_contentstate import (
     InlineStyleElementHandler
 )
+from wagtail.core.rich_text import LinkHandler
+from django.utils.html import escape
 
 
 # register bootstrap sample output
@@ -91,3 +93,17 @@ def register_variable_styling(features):
 
     # register to all rich text editors by default
     features.default_features.append(feature_name)
+
+
+
+class NoFollowExternalLinkHandler(LinkHandler):
+    identifier = 'external'
+
+    @classmethod
+    def expand_db_attributes(cls, attrs):
+        href = attrs["href"]
+        return '<a href="%s" rel="nofollow">' % escape(href)
+
+@hooks.register('register_rich_text_features')
+def register_external_link(features):
+    features.register_link_type(NoFollowExternalLinkHandler)
