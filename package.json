@@ -1,0 +1,26 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "description": "Personal website containing my portfolio/cv's/projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makspll/personal-website.git"
+  },
+  "keywords": [
+    "personal",
+    "website"
+  ],
+  "author": "Maksymilian Mozolewski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/makspll/personal-website/issues"
+  },
+  "homepage": "https://github.com/makspll/personal-website#readme",
+  "dependencies": {
+    "angular": "^1.8.0"
+  }
+}

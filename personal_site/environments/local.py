@@ -258,6 +258,10 @@ INSTALLED_APPS += ['django.contrib.sitemaps','wagtail.contrib.modeladmin','robot
 # API
 INSTALLED_APPS += ['wagtail.api.v2','rest_framework']
 
+
+# django-angular
+INSTALLED_APPS += ['djng','easy_thumbnails']
+
 ## x-frame-options
 # allow embeding own content on site
 X_FRAME_OPTIONS = 'SAMEORIGIN'
