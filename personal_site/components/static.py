@@ -28,7 +28,9 @@ WHITENOISE_KEEP_ONLY_HASHED_FILES = True
 # pre-process scss and sass files
 COMPRESS_PRECOMPILERS = [
     ("text/x-scss", "django_libsass.SassCompiler"),
-    ('text/x-sass',"django_libsass.SassCompiler")]
+    ('text/x-sass',"django_libsass.SassCompiler"),
+    ('text/jsx', 'third_party.react_compressor.ReactFilter'),
+    ]
 
 
 
