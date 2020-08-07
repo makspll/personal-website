@@ -3,6 +3,9 @@
 
 cd "$1" || exit 1
 
+echo "-----> Collecting Node Dependencies to Static Root"
+npm run build
+
 echo "-----> Collecting static files for django-compressor"
 python manage.py collectstatic --noinput --traceback 
 

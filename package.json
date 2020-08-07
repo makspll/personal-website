@@ -1,0 +1,37 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "description": "Personal website setup allowing for blog posts/project galleries and more.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js",
+    "dev": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makspll/personal-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/makspll/personal-website/issues"
+  },
+  "homepage": "https://github.com/makspll/personal-website#readme",
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "exports-loader": "^1.1.0",
+    "react": "^16.13.1",
+    "react-content-loader": "^5.1.0",
+    "react-dom": "^16.13.1"
+  }
+}

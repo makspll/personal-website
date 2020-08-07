@@ -131,5 +131,6 @@ dmypy.json
 # personal_site
 
 static_root/
+static_build/
 media_root/
 node_modules/
