@@ -2,7 +2,24 @@ from wagtail.api.v2.views import PagesAPIViewSet
 from wagtail.api.v2.router import WagtailAPIRouter
 from wagtail.images.api.v2.views import ImagesAPIViewSet
 from wagtail.documents.api.v2.views import DocumentsAPIViewSet
+from rest_framework import serializers
+from rest_framework import viewsets
+from .models import ArticlePage
+from rest_framework import generics
+from taggit.models import Tag
+from django.contrib.contenttypes.models import ContentType  
 
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model= Tag
+        fields=['name']
+
+class TagListView(generics.ListAPIView):
+    serializer_class = TagSerializer
+    def get_queryset(self):
+        return Tag.objects.filter( 
+        articlepage__title__isnull=False).order_by('name')
+        
 
 # Create the router. "wagtailapi" is the URL namespace
 api_router = WagtailAPIRouter('wagtailapi')

@@ -37,7 +37,6 @@ class ProjectBlock extends React.Component{
     }
 
     load_project_page(){
-        console.log("loading page", this.toString())
         var url_href = GET_API_ROOT_URL() + `pages/${this.props.json.project_page}/`;
 
         fetch(url_href).then(res => res.json())
