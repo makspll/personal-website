@@ -14,6 +14,7 @@ from wagtail.core.blocks import RichTextBlock, RawHTMLBlock
 from wagtail.core.fields import StreamField
 from wagtailcodeblock.blocks import CodeBlock
 from wagtail.api import APIField
+from wagtail.images.api.fields import ImageRenditionField
 
 # Create your models here.
 
@@ -138,6 +139,8 @@ class ArticlePageMixin(models.Model):
         APIField('tag_line'),
         APIField('short_title'),
         APIField('featured_image'),
+        APIField('featured_image_placeholder',serializer=ImageRenditionField('scale-25', source='featured_image')),
+        APIField('featured_image_thumbnail',serializer=ImageRenditionField('fill-250x250-c100', source='featured_image')),
         APIField('blurb'),
         APIField('article_items'),
         APIField('show_in_listings'),

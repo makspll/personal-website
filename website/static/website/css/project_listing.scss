@@ -51,6 +51,9 @@
     .project-listing{
             
         &-project{
+            &:not(:first-child){
+                margin-top:map-get($map: $spacers, $key:2) !important;
+            }
             img{
                 margin-left: 0 !important;
                 margin-right: map-get($map: $spacers, $key:3) !important;

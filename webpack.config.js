@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry:  path.resolve('./website/static/website/js/index.js'),
+    entry:  path.resolve('./client/index.js'),
     output: {
         path: path.resolve(__dirname, "static_root"), // string
         filename: "[name].js", // string
