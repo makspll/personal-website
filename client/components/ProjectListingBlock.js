@@ -2,7 +2,7 @@ import React from 'react';
 import {GET_ROOT_URL,GET_API_ROOT_URL} from '../DynamicVariables.js';
 import ContentLoader from "react-content-loader"
 import ProjectBlock from "./ProjectBlock.js";
-
+import TagFilterNav from "./TagFilterNav.js";
 
 
 class ProjectListingBlock extends React.Component{
@@ -52,6 +52,7 @@ class ProjectListingBlock extends React.Component{
 
         return (
                 <div className="project-listing list-unstyled p-2 border">
+                    <TagFilterNav/>
                     {content}
                 </div>
         )
