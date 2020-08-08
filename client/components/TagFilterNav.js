@@ -12,8 +12,7 @@ class TagFilterNav extends React.Component{
     }
 
     load_tags_page(){
-        var url_href = GET_API_ROOT_URL() + `tags/`;
-
+        var url_href = GET_API_ROOT_URL() + `tags/projects/`;
         fetch(url_href).then(res => res.json())
             .then( 
                 (result) =>{
@@ -35,6 +34,17 @@ class TagFilterNav extends React.Component{
         this.load_tags_page()
     }
 
+    selectTag(name){
+        this.props.set_selected_tags_handler([...this.props.selected_tags,name])
+    }
+
+    deSelectTag(name){
+        let idx_of_tag = this.props.selected_tags.indexOf(name);
+        let selected_tags_copy = this.props.selected_tags.slice();
+        selected_tags_copy.splice(idx_of_tag,1);
+        this.props.set_selected_tags_handler(selected_tags_copy)
+    }
+
     render() { 
 
         let {is_loaded, tag_list} = this.state;
@@ -42,13 +52,31 @@ class TagFilterNav extends React.Component{
         let content = null;
         if(is_loaded){
 
-            let tags = tag_list.map((val,index)=>
-                <span className="badge badge-secondary m-1">{val}</span>
-            )
+            let tags = tag_list.map((val,index)=>{
+
+                let button = null;
+                if(this.props.selected_tags.includes(val)){
+                    button = <button className="btn btn-secondary btn-sm p-1 m-1 active" onClick={()=>this.deSelectTag(val)} role="switch" aria-checked="true">{val}</button>
+                }else{
+                    button = <button className="btn btn-secondary btn-sm p-1 m-1" onClick={()=>this.selectTag(val)} role="switch" aria-checked="false">{val} </button>
+                }
+
+                return button;
+            })
 
             content = 
                 <nav className="bg-primary text-light border border-gray p-2 overflow-auto">
-                    <h3 className="m-0 text-left">Filters</h3>
+                    <div className="d-flex">
+                        <p className="m-0 text-left h3">Filters</p>
+
+                        <button 
+                            className="btn btn-warning btn-sm ml-auto"
+                            onClick={()=>this.props.set_selected_tags_handler([])}
+                            >
+                            Clear Filters
+                        </button>
+
+                    </div>
                     <hr className="my-2 bg-light"/>
                     <div className="d-flex flex-row flex-wrap">
                         {tags}

@@ -2,7 +2,9 @@ import React from 'react';
 import {GET_ROOT_URL,GET_API_ROOT_URL} from '../DynamicVariables.js';
 import ContentLoader from "react-content-loader";
 import ProjectListingBlock from "./ProjectListingBlock.js";
-
+import RichTextBlock from "./RichTextBlock.js";
+import TimelineBlock from "./TimelineBlock.js";
+import PDFBlock from "./PDFBlock.js";
 
 class FreeformListingBlock extends React.Component{
 
@@ -43,20 +45,26 @@ class FreeformListingBlock extends React.Component{
 
                 let jsx_value = null;
 
-                switch(String(value.type)){
+                switch(value.type){
 
                     case "text":
                         jsx_value = 
-                            <div key={index} className="px-4">
-                                text
+                            <div className="px-4">
+                                <RichTextBlock key={index} json={value} isLoaded={true} idx={index} />
                             </div>
                         break;
-                    
+                    case "timeline":
+                        jsx_value = 
+                            <TimelineBlock key={index} json={value} isLoaded={true} idx={index}/>
+                        break;
                     case "projects":
                         jsx_value = 
-                            <ProjectListingBlock key={index} json={value} isLoaded={true}/>
+                            <ProjectListingBlock key={index} json={value} isLoaded={true} idx={index}/>
                         break;
-
+                    case "pdf":
+                        jsx_value = 
+                            <PDFBlock key={index} json={value} isLoaded={true} idx={index}/>
+                        break;
                     default:
                         jsx_value =
                             <p key={index} >block type not implemented yet: {value.type} </p>

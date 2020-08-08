@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {GET_ROOT_URL,GET_API_ROOT_URL} from '../DynamicVariables.js';
+import {GET_API_ROOT_URL} from '../DynamicVariables.js';
 import ContentLoader from "react-content-loader"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
@@ -47,7 +46,6 @@ class ProjectBlock extends React.Component{
                         project_page_json: result,
                         project_page_loaded: true,
                     });
-                    console.log(result);
                 },
                 (error)=>{
                     console.error(error);
@@ -72,10 +70,24 @@ class ProjectBlock extends React.Component{
 
     render() {
         
-        let {isLoaded,json} = this.props;
+        let {isLoaded,json,filters} = this.props;
 
+        
         let content = null;
         if (isLoaded && this.state.project_page_loaded){
+
+            // check we pass filters first
+            let has_some_selected_tag = 
+                filters.selected_tags.length === 0 || 
+                filters.selected_tags.some((filter_tag)=>
+                    this.state.project_page_json.tags.includes(filter_tag)
+                );
+
+            // end early
+            if (!has_some_selected_tag){
+                return null
+            }
+
             let image_title = this.state.project_page_json.featured_image.title;
             let thumbnail_json = this.state.project_page_json.featured_image_thumbnail;
             let placeholder_img_json = this.state.project_page_json.featured_image_placeholder;
