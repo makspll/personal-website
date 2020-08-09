@@ -11,6 +11,7 @@ class EventBlock extends React.Component{
         let content = null;
         if (isLoaded){
             let aos_vals = ["fade-right","fade-left"]
+            let date = new Date(json.value.date)
             content =
                 <div className="event py-5" 
                     data-aos={aos_vals[event_idx % 2].toString()}>
@@ -18,7 +19,7 @@ class EventBlock extends React.Component{
                     <span className="event-icon"></span>
 
                     {json.value.date ? 
-                        <span className="year">{ json.value.date }</span>:
+                        <span className="year">{ date.toLocaleDateString() }</span>:
                         null}
                     
                     <div className="event-content">

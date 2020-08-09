@@ -88,22 +88,29 @@ class ProjectBlock extends React.Component{
                 return null
             }
 
-            let image_title = this.state.project_page_json.featured_image.title;
-            let thumbnail_json = this.state.project_page_json.featured_image_thumbnail;
-            let placeholder_img_json = this.state.project_page_json.featured_image_placeholder;
-
-            let image = 
-                    <LazyLoadImage
-                        alt={image_title}
-                        src={thumbnail_json.url}
-                        height={thumbnail_json.height}
-                        width={thumbnail_json.width}
-                        className="rounded align-self-center img-fluid"
-                    />
+            let image = null;
+            if(this.state.project_page_json.featured_image){
+                let image_title = this.state.project_page_json.featured_image.title;
+                let thumbnail_json = this.state.project_page_json.featured_image_thumbnail;
+                let placeholder_img_json = this.state.project_page_json.featured_image_placeholder;
+    
+                image = 
+                        <LazyLoadImage
+                            alt={image_title}
+                            src={thumbnail_json.url}
+                            height={thumbnail_json.height}
+                            width={thumbnail_json.width}
+                            className="rounded align-self-center img-fluid"
+                        />
+            }
+           
 
             let tags = this.state.project_page_json.tags.map((value,index)=>{
                 <span key={index} className="badge badge-secondary mt-2"> { value } </span>
             })
+
+            let start_date = new Date(this.state.project_page_json.project_start_date)
+            let end_date = new Date(this.state.project_page_json.project_end_date)
 
             content =  
                 <li className="project-listing-project p-3 border position-relative">
@@ -115,12 +122,12 @@ class ProjectBlock extends React.Component{
                         <div className="text-muted h6">
                             <span><i className="fa fa-hourglass-start fa-sm" aria-hidden="true"></i></span>
                             <span> {(this.state.project_page_json.project_start_date)? 
-                                        this.state.project_page_json.project_start_date :
+                                        start_date.toLocaleDateString() :
                                         "Not Started"} -
                             </span>
                             <span> <i className="fa fa-hourglass-end fa-sm" aria-hidden="true"></i></span>
                             <span> {(this.state.project_page_json.project_end_date)? 
-                                        this.state.project_page_json.project_end_date :
+                                        end_date.toLocaleDateString() :
                                         "Not Completed"}</span>
                             <br/>
                             {tags}
