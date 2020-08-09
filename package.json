@@ -20,10 +20,10 @@
   },
   "homepage": "https://github.com/makspll/personal-website#readme",
   "devDependencies": {
-    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "webpack-cli": "^3.3.12",
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
