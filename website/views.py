@@ -2,15 +2,16 @@ from wagtail.documents.views import serve
 import requests
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
-
+from wagtail.documents.models import Document
+import ntpath
 def view_document(request, document_id, document_filename):
     """
     Calls the normal document `serve` view, except makes it not an attachment.
     """
     # Get response from `serve` first
-    response = serve.serve(request, document_id, document_filename)
+    requested_doc = Document.objects.get(id=document_id)
+    response = serve.serve(request, document_id, ntpath.basename(requested_doc.file.name))
     
-    print( type(response))
     if isinstance(response,HttpResponseRedirect):
         response = requests.get(response.url)
         # we convert to django response from python response, otherwise middleware freaks out

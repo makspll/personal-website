@@ -4,33 +4,8 @@
 {% load taggit_templatetags2_tags %}
 
 {% block content_inside %}
-    <div class= "article-listing container-sm flex-grow-1 shadow-lg p-0">
+    <div id="article_listing" class= "article-listing container-sm flex-grow-1 shadow-lg p-0">
 
-        <div class="article-listing-body  p-5">
-        {% for article_item in articles %}
-            {% if article_item.show_in_listings %}
-            <div class="article-listing-article position-relative text-left pt-3" >
-                <h2 class="mb-0">{{article_item.title}}</h2>
-                <div >
-                    <div class="text-muted h6">
-
-                        <span><i class="far fa-clock fa-sm" aria-hidden="true"></i></span>
-                        <span>{{article_item.first_published_at|date:'j/n/Y'}}</span>
-                        <br/>
-                        {% for tag in article_item.tags.all %}
-                            <span class="badge badge-secondary mt-2"> {{ tag.name }} </span>
-                        {% endfor %}
-                    </div>
-                </div>
-                {% image article_item.featured_image max-700x500 class="img-fluid article-listing-thumbnail img-thumbnail"%}
-                <a href="{% pageurl article_item %}" class="stretched-link"></a>
-                <p>{{article_item.blurb|richtext|truncatechars_html:600}}</p>
-                <div class="overlay">Read More</div>
-                <hr class="mb-0"/>
-            </div>
-            {% endif %}
-        {% endfor %}
-        </div>
     </div>
 {% endblock %}
 

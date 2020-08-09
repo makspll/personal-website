@@ -18,7 +18,7 @@ INSTALLED_APPS = INSTALLED_APPS + [
 
 MIDDLEWARE = MIDDLEWARE + ['wagtail.contrib.redirects.middleware.RedirectMiddleware',]
 
-WAGTAIL_SITE_NAME = 'mozolewskimaks.co.uk'
+WAGTAIL_SITE_NAME = 'Personal Website'
 WAGTAILEMBEDS_RESPONSIVE_HTML = True
 
 ## wagtail-metadata
@@ -246,7 +246,7 @@ INSTALLED_APPS += ['taggit_templatetags2']
 ## custom apps
 
 INSTALLED_APPS += ['website']
-
+TEMPLATES[0]["OPTIONS"]["context_processors"] += ["website.template_processors.debug_mode_processor.debug_mode_processor"]
 
 # font awesome
 INSTALLED_APPS += ['fontawesome_5',]
@@ -257,6 +257,7 @@ INSTALLED_APPS += ['django.contrib.sitemaps','wagtail.contrib.modeladmin','robot
 
 # API
 INSTALLED_APPS += ['wagtail.api.v2','rest_framework']
+
 
 
 ## x-frame-options

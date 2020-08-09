@@ -14,6 +14,8 @@ from wagtail.core.blocks import RichTextBlock, RawHTMLBlock
 from wagtail.core.fields import StreamField
 from wagtailcodeblock.blocks import CodeBlock
 from wagtail.api import APIField
+from wagtail.images.api.fields import ImageRenditionField
+from rest_framework.fields import Field
 
 # Create your models here.
 
@@ -138,6 +140,10 @@ class ArticlePageMixin(models.Model):
         APIField('tag_line'),
         APIField('short_title'),
         APIField('featured_image'),
+        APIField('featured_image_original',serializer=ImageRenditionField('original',source='featured_image')),
+        APIField('featured_image_small',serializer=ImageRenditionField('max-700x500',source='featured_image')),
+        APIField('featured_image_placeholder',serializer=ImageRenditionField('scale-25', source='featured_image')),
+        APIField('featured_image_thumbnail',serializer=ImageRenditionField('fill-250x250-c100', source='featured_image')),
         APIField('blurb'),
         APIField('article_items'),
         APIField('show_in_listings'),
@@ -208,6 +214,24 @@ class ArticleListingPage(MetadataPageMixin,
 
         return context
 
-    content_panels = Page.content_panels +HeaderedPageMixin.content_panels + NavigationPageMixin.content_panels + [
+    class ArticlesSerializerField(Field):
+        def to_representation(self,value):
+            output = []
+            
+            for article in value:
+                output += [{ 
+                        "id":article.pk
+                    }]
+            return output
+
+    @property
+    def articles(self):
+        return ArticlePage.objects.descendant_of(self).live().order_by('-first_published_at').specific().filter(show_in_listings=True)
+
+
+    content_panels = Page.content_panels + HeaderedPageMixin.content_panels + NavigationPageMixin.content_panels + [
     ]
 
+    api_fields = [
+        APIField("articles",serializer=ArticlesSerializerField()),
+    ]

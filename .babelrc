@@ -1,0 +1,11 @@
+{
+    "presets": ["@babel/preset-env", "@babel/preset-react"],
+    "plugins": [
+      ["prismjs", {
+          "languages": ["javascript","css", "markup","arduino","csharp","c","git","haskell","http","java","latex","lua","markdown","matlab","python","jsx","scss"],
+          "plugins": ["line-numbers","highlight-keywords","show-language"],
+          "theme": "okaidia",
+          "css": true
+      }]
+    ]
+}
