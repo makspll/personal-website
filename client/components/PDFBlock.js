@@ -1,5 +1,7 @@
 import React from 'react';
 import { GET_ROOT_URL,GET_API_ROOT_URL } from '../DynamicVariables.js';
+import $ from "jquery";
+import PDFObject from 'pdfobject';
 
 class PDFBlock extends React.Component{
     constructor(props){

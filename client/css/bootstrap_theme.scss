@@ -15,7 +15,7 @@ $enable-gradients:false;
 
 $line-height-base: 1.7;
 
-@import "bootstrap-4.5.0/scss/bootstrap";
+@import "~bootstrap-scss/bootstrap.scss";
 
 
 
@@ -27,4 +27,4 @@ body {font-size: 1rem;height:100%;}
 @include media-breakpoint-up(lg) {body {font-size: 1.4rem;}}
 
 
-@import "aos/aos.scss"
+@import "~aos/dist/aos.css"

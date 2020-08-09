@@ -1,5 +1,5 @@
 import React from 'react';
-
+import AOS from 'aos';
 
 class EventBlock extends React.Component{
     componentDidMount(){
