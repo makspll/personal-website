@@ -5,6 +5,7 @@ import ProjectListingBlock from "./ProjectListingBlock.js";
 import RichTextBlock from "./RichTextBlock.js";
 import TimelineBlock from "./TimelineBlock.js";
 import PDFBlock from "./PDFBlock.js";
+import CodeBlock from "./CodeBlock.js";
 
 class FreeformListingBlock extends React.Component{
 
@@ -64,6 +65,10 @@ class FreeformListingBlock extends React.Component{
                     case "pdf":
                         jsx_value = 
                             <PDFBlock key={index} json={value} isLoaded={true} idx={index}/>
+                        break;
+                    case "code":
+                        jsx_value =
+                            <CodeBlock key={index} json={value} isLoaded={true} idx={index}/>
                         break;
                     default:
                         jsx_value =
