@@ -134,3 +134,4 @@ static_root/
 static_build/
 media_root/
 node_modules/
+static_src/main.js

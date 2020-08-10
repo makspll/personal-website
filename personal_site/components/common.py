@@ -42,12 +42,14 @@ INSTALLED_APPS = [
 
     # django-compressor
     'compressor',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     
     'django.middleware.security.SecurityMiddleware',
-
+    # cors
+    'corsheaders.middleware.CorsMiddleware',
     # minify html
     'htmlmin.middleware.HtmlMinifyMiddleware',
     'htmlmin.middleware.MarkRequestMiddleware',
@@ -155,3 +157,12 @@ USE_L10N = True
 
 USE_TZ = True
 TIME_ZONE = 'UTC'
+
+
+# cors
+CORS_ORIGIN_WHITELIST = [
+    "https://maksmozolewski.co.uk",
+    "https://www.maksmozolewski.co.uk",
+    "https://mozolewskimaks.herokuapp.com/",
+    "http://localhost:8080",
+]
