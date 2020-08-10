@@ -159,7 +159,6 @@ USE_TZ = True
 TIME_ZONE = 'UTC'
 
 
-cors
 CORS_ORIGIN_WHITELIST = [
     "https://maksmozolewski.co.uk",
     "https://www.maksmozolewski.co.uk",
