@@ -160,9 +160,10 @@ TIME_ZONE = 'UTC'
 
 
 # cors
-CORS_ORIGIN_WHITELIST = [
-    "https://maksmozolewski.co.uk",
-    "https://www.maksmozolewski.co.uk",
-    "https://mozolewskimaks.herokuapp.com/",
-    "http://localhost:8080",
-]
+# CORS_ORIGIN_WHITELIST = [
+#     "https://maksmozolewski.co.uk",
+#     "https://www.maksmozolewski.co.uk",
+#     "https://mozolewskimaks.herokuapp.com/",
+#     "http://localhost:8080",
+# ]
+CORS_ORIGIN_ALLOW_ALL = True
