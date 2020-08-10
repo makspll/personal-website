@@ -54,7 +54,7 @@ class ArticleListing extends React.Component{
 
         if(initial_data_present && article_loaded){
             let tags = article_json.tags.map((value,index)=>
-                <span className="badge badge-secondary mt-2"> { value } </span>
+                <span className="badge badge-secondary mt-2 mr-2"> { value } </span>
             )
 
 
