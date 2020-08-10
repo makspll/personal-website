@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     entry:  path.resolve('./client/index.js'),
     output: {
-        path: path.resolve(__dirname, "static_root"), // string
+        path: path.resolve(__dirname, "static_src"), // string
         filename: "[name].js", // string
         publicPath: "/static_root/", // string 
         chunkFilename: "[id]-[chunkhash].js",
