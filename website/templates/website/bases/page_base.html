@@ -49,11 +49,12 @@
 
   {% block content %}
   {% endblock %}
+  
+  <!-- load webpack export -->
+  <script src="{% static "main.js" %}" type="text/javascript"></script>
 
   <!--compressed scripts-->
   {% compress js%}
-  <!-- load webpack export -->
-  <script src="{% static "main.js" %}" type="text/javascript"></script>
 
   {% block compressed_scripts %}
   {% endblock %}
