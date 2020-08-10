@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".maksmozolewski.co.uk",".mozolewskimaks.herokuapp.com"]
 
 
 # Application definition
@@ -159,11 +159,10 @@ USE_TZ = True
 TIME_ZONE = 'UTC'
 
 
-# cors
-# CORS_ORIGIN_WHITELIST = [
-#     "https://maksmozolewski.co.uk",
-#     "https://www.maksmozolewski.co.uk",
-#     "https://mozolewskimaks.herokuapp.com/",
-#     "http://localhost:8080",
-# ]
-CORS_ORIGIN_ALLOW_ALL = True
+cors
+CORS_ORIGIN_WHITELIST = [
+    "https://maksmozolewski.co.uk",
+    "https://www.maksmozolewski.co.uk",
+    "https://mozolewskimaks.herokuapp.com",
+    "http://localhost:8080",
+]
