@@ -1,28 +1,7 @@
 import React from 'react';
 import {GET_API_ROOT_URL} from '../DynamicVariables.js';
-import ContentLoader from "react-content-loader"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-
-const ProjectBlockLoader = (props) => (
-  <ContentLoader 
-    speed={2}
-    height="250"
-    viewBox="0 0 250 100 "
-    backgroundColor="#f3f3f3"
-    foregroundColor="#ecebeb"
-    style={{ width: '100%' , textAlign: 'left'}}
-    className="project-listing-project p-3 border position-relative"
-    preserveAspectRatio="none"
-    {...props}
-  >
-    <rect x="7" y="2" rx="0" ry="0" width="85" height="93" /> 
-    <rect x="106" y="9" rx="0" ry="0" width="170" height="17" /> 
-    <rect x="106" y="37" rx="0" ry="0" width="113" height="6" /> 
-    <rect x="106" y="55" rx="0" ry="0" width="87" height="6" /> 
-    <rect x="106" y="71" rx="0" ry="0" width="87" height="6" /> 
-    <rect x="106" y="86" rx="0" ry="0" width="87" height="6" />
-  </ContentLoader>
-)
+import ProjectBlockPlaceholder from '../component_placeholders/ProjectBlockPlaceholder';
 
 
 class ProjectBlock extends React.Component{
@@ -140,7 +119,7 @@ class ProjectBlock extends React.Component{
                 </li>
         }
         else{
-            content = <ProjectBlockLoader/>
+            content = <ProjectBlockPlaceholder/>
         }
 
         return(content)

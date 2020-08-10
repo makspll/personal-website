@@ -1,6 +1,7 @@
 import React from 'react';
 import truncate from 'truncate-html';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import ArticleListingPlaceholder from '../component_placeholders/ArticleListingPlaceholder';
 
 import {GET_API_ROOT_URL} from '../DynamicVariables';
 class ArticleListing extends React.Component{
@@ -52,7 +53,7 @@ class ArticleListing extends React.Component{
         let content = null;
         let initial_data_present = is_loaded && json;
 
-        if(initial_data_present && article_loaded){
+        if(initial_data_present && article_loaded && article_json){
             let tags = article_json.tags.map((value,index)=>
                 <span className="badge badge-secondary mt-2 mr-2"> { value } </span>
             )
@@ -98,10 +99,10 @@ class ArticleListing extends React.Component{
                     <hr className="mb-0"/>
  
                 </div>
-        } else if (is_loaded) {
-
+        } else if (article_loaded && !article_json) {
+            return <p>Could not load data, please refresh the page.</p>
         } else {
-
+            return <ArticleListingPlaceholder/>
         }  
 
         return content;

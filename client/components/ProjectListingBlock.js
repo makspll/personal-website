@@ -3,7 +3,7 @@ import {GET_ROOT_URL,GET_API_ROOT_URL} from '../DynamicVariables.js';
 import ContentLoader from "react-content-loader"
 import ProjectBlock from "./ProjectBlock.js";
 import TagFilterNav from "./TagFilterNav.js";
-
+import Spinner from "../component_placeholders/Spinner";
 
 class ProjectListingBlock extends React.Component{
     constructor(props){
@@ -50,24 +50,8 @@ class ProjectListingBlock extends React.Component{
                 </React.Fragment>;
 
          } else {
-            // create random placeholders
-            let numrows = 10;
-            var rows = [];
-            for (var i = 0; i < numrows; i++) {
-                if( i+1 < numrows){
-                    rows.push(
-                            [<ProjectBlock key={i}/>,
-                            <div key={-(i - 1)} className="my-2"></div>]
-                        );
-                }
-                else {
-                    rows.push(
-                        <ProjectBlock key={i}/>
-                    )
-                }
-            }
-
-            content = rows;
+            
+            content = <Spinner/>;
         }
 
        

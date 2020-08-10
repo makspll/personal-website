@@ -1,6 +1,7 @@
 import React from 'react';
 import {GET_API_ROOT_URL} from '../DynamicVariables.js';
 import ArticleListing from './ArticleListing';
+import Spinner from '../component_placeholders/Spinner';
 
 class ArticleListingBlock extends React.Component{
     
@@ -80,13 +81,13 @@ class ArticleListingBlock extends React.Component{
         } else if(is_loaded){
             content = <p>Oops! Looks like we could not retrieve data to display! Please refresh the page.</p>
         } else {
-            content = null;
+            content = <Spinner className="d-flex flex-grow-1 flex-column justify-content-center "/>;
         }
 
 
         return (
             <React.Fragment>
-                <div className="article-listing-body px-5 pt-5">
+                <div className="d-flex flex-column article-listing-body px-5 pt-5 h-100 flex-grow-1">
                     {content}
                 </div>
                 <div className="text-center p-3">

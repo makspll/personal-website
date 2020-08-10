@@ -7,6 +7,8 @@ import TimelineBlock from "./TimelineBlock.js";
 import PDFBlock from "./PDFBlock.js";
 import CodeBlock from "./CodeBlock.js";
 import { data } from 'jquery';
+import Spinner from '../component_placeholders/Spinner';
+import FadeIn from 'react-fade-in';
 
 class FreeformListingBlock extends React.Component{
 
@@ -92,6 +94,7 @@ class FreeformListingBlock extends React.Component{
                 }
                 
                 return (
+                        
                         jsx_value
                         //                        {(index !== freeform_content.length - 1) ? <hr /> : null}
 
@@ -105,17 +108,13 @@ class FreeformListingBlock extends React.Component{
             content = <p>Oops! Looks like we could not retrieve data to display! Please refresh the page.</p>
         } else {
 
-            let numrows = 10;
-
-            var rows = [];
-
-            for (var i = 0; i < numrows; i++) {
-                rows.push(
-                    <ProjectListingBlock key={i}/>
-                );
-            }
-
-            content = rows;
+            content = 
+                    <FadeIn 
+                        delay={250} 
+                        className="d-flex flex-column flex-grow-1"
+                        childClassName="d-flex flex-column flex-grow-1">
+                        <Spinner/>
+                    </FadeIn>;
 
         }
         
