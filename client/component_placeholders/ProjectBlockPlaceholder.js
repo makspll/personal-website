@@ -14,8 +14,11 @@ const ProjectBlockPlaceholder = (props) =>{
             <div className="project-listing-project-body">
                 <h4 className="h2 mb-0"><Skeleton /></h4>
                 <div className="text-muted h6 mb-5">
+                <span>
+                    <i className="fa fa-hourglass-start fa-sm" aria-hidden="true"></i></span>
                     <span> <Skeleton width={100}/> -
                     </span>
+                    <span> <i className="fa fa-hourglass-end fa-sm" aria-hidden="true"></i></span>
                     <span> <Skeleton width={100}/></span>
                     <br/>
                 </div>
