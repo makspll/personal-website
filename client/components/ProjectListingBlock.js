@@ -44,7 +44,7 @@ class ProjectListingBlock extends React.Component{
             content =
                 <React.Fragment>
                     {heading}
-                    <hr/>
+                    {(heading)?<hr/>:null}
                     <TagFilterNav set_selected_tags_handler={(tags)=>this.set_selected_tags(tags)} selected_tags={this.state.selected_tags}/>
                     {project_blocks}
                 </React.Fragment>;
