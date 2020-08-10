@@ -1,19 +1,26 @@
 import React from 'react';
 import {GET_ROOT_URL,GET_API_ROOT_URL} from '../DynamicVariables.js';
 import ContentLoader from "react-content-loader"
+import TagFilterNavPlaceholder from '../component_placeholders/TagFilterNavPlaceholder';
 
 class TagFilterNav extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             tag_list: [],
-            is_loaded : false,
+            tags_loaded : false,
         }
     }
 
     load_tags_page(){
         var url_href = GET_API_ROOT_URL() + `tags/projects/`;
-        fetch(url_href).then(res => res.json())
+        fetch(url_href).then(res => {
+                if(res.ok){
+                    return res.json();
+                } else {
+                    throw `Couldn't fetch tags, status code: ${res.status}`
+                }
+            })
             .then( 
                 (result) =>{
                     let aggregated_tag_names = result.flatMap((val)=>
@@ -21,10 +28,13 @@ class TagFilterNav extends React.Component{
                     )
                     this.setState({
                         tag_list : aggregated_tag_names,
-                        is_loaded : true,
+                        tags_loaded : true,
                     });
                 },
                 (error)=>{
+                    this.setState({
+                        tags_loaded : true,
+                    })
                     console.error(error);
                 }
             )
@@ -47,10 +57,10 @@ class TagFilterNav extends React.Component{
 
     render() { 
 
-        let {is_loaded, tag_list} = this.state;
+        let {tags_loaded, tag_list} = this.state;
         
         let content = null;
-        if(is_loaded){
+        if(tags_loaded && tag_list){
 
             let tags = tag_list.map((val,index)=>{
 
@@ -82,8 +92,26 @@ class TagFilterNav extends React.Component{
                         {tags}
                     </div>
                 </nav>
-        }else{
-            content = null;
+        }else if (tags_loaded){
+            content =  
+                <nav className="bg-primary text-light border border-gray p-2 overflow-auto">
+                    <div className="d-flex">
+                        <p className="m-0 text-left h3">Filters</p>
+
+                        <button 
+                            className="btn btn-warning btn-sm ml-auto disabled"
+                            >
+                            Clear Filters
+                        </button>
+
+                    </div>
+                    <hr className="my-2 bg-light"/>
+                    <div className="d-flex flex-row flex-wrap">
+                        <p>Could not load tags, please refresh the page.</p>
+                    </div>
+                </nav>;
+        } else {
+            content = <TagFilterNavPlaceholder/>
         }
         return(content);    
 }
