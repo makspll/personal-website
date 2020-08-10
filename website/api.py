@@ -19,7 +19,7 @@ class ProjectTagListView(generics.ListAPIView):
     def get_queryset(self):
         return Tag.objects.filter( 
                 articlepage__content_type=ContentType.objects.get_for_model(ProjectArticlePage)
-            ).order_by('name')
+            ).order_by('name').distinct()
         
 
 # Create the router. "wagtailapi" is the URL namespace
