@@ -16,6 +16,7 @@ from wagtailcodeblock.blocks import CodeBlock
 from wagtail.api import APIField
 from wagtail.images.api.fields import ImageRenditionField
 from rest_framework.fields import Field
+from wagtail.search import index
 
 # Create your models here.
 
@@ -81,6 +82,11 @@ class FreeformContentMixin(models.Model):
     api_fields = [
         APIField("freeform_items"),
     ]
+
+    search_fields = [
+        index.SearchField('freeform_items'),
+    ]
+
     class Meta:
         abstract = True
 
@@ -99,6 +105,10 @@ class FreeformPage(MetadataPageMixin,
         FreeformContentMixin.content_panels
 
     api_fields = FreeformContentMixin.api_fields + [
+
+    ]
+
+    search_fields = Page.search_fields + FreeformContentMixin.search_fields + [
 
     ]
 
@@ -151,6 +161,13 @@ class ArticlePageMixin(models.Model):
 
     ]
 
+    search_fields = [
+        index.SearchField("short_title",partial_match=True,boost=1.5),
+        index.SearchField("tag_line",partial_match=True,boost=1.5),
+        index.SearchField("blurb",partial_match=True,boost=1.4),
+        index.SearchField("article_items",partial_match=True),
+    ]
+
     class Meta:
         abstract = True
 
@@ -181,6 +198,10 @@ class ArticlePage(MetadataPageMixin,
     api_fields = ArticlePageMixin.api_fields + [
         APIField("tags")
     ]
+    search_fields = Page.search_fields + ArticlePageMixin.search_fields + [
+        index.SearchField("tags",partial_match=True,boost=1.5),
+
+    ]
     
 
 class ProjectArticlePage(ArticlePage):
@@ -198,6 +219,12 @@ class ProjectArticlePage(ArticlePage):
     api_fields = ArticlePage.api_fields + [
         APIField("project_start_date"),
         APIField("project_end_date"),
+
+    ]
+
+    search_fields = ArticlePage.search_fields + [
+        index.FilterField("project_start_date"),
+        index.FilterField("project_end_date"),
     ]
 
 class ArticleListingPage(MetadataPageMixin,
