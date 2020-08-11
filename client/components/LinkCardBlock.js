@@ -67,7 +67,7 @@ class LinkCardBlock extends React.Component{
         let {isLoaded,json,index} = this.props;
         let {loaded_photo,photo_json,loaded_link,link_json} = this.state
         let content = null;
-        let loaded_content = loaded_photo && loaded_link;
+        let loaded_content = loaded_link;
         if(isLoaded && json && loaded_content){
 
             let color_variables = ["blue","green","yellow"]
