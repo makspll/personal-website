@@ -9,7 +9,7 @@ class LinkCardListingBlock extends React.Component{
         let content = null;
         if(isLoaded && json){
             content = 
-                <div className="overflow-full-width bg-secondary d-flex flex-row justify-content-around flex-wrap align-items-stretch">
+                <div className="overflow-full-width bg-primary d-flex flex-row justify-content-around flex-wrap align-items-stretch">
                     {json.value.link_cards.map((value,index)=>{
                         return <LinkCardBlock index={index} isLoaded={true} key={index} json={value}/>
                     })}

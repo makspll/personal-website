@@ -90,7 +90,7 @@ class LinkCardBlock extends React.Component{
                         />
             }
             content = 
-                <div className="card shadow bg-primary text-light text-center m-5" style={{width:"300px"}}>
+                <div className="card shadow bg-secondary text-dark text-center m-5" style={{width:"300px"}}>
                     <div className="border-bottom-0 card-header bg-white position-relative" >
                         {image}
                         <div className=" absolute-side-right" style={{backgroundColor:current_color,height:"100%",width:"10px"}}>
