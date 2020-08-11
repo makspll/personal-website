@@ -199,8 +199,9 @@ class ArticlePage(MetadataPageMixin,
         APIField("tags")
     ]
     search_fields = Page.search_fields + ArticlePageMixin.search_fields + [
-        index.SearchField("tags",partial_match=True,boost=1.5),
-
+        index.RelatedFields('tags', [
+            index.SearchField('name', partial_match=True, boost=5),
+        ]),
     ]
     
 
