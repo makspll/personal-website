@@ -9,6 +9,7 @@ import CodeBlock from "./CodeBlock.js";
 import { data } from 'jquery';
 import Spinner from '../component_placeholders/Spinner';
 import FadeIn from 'react-fade-in';
+import LinkCardListingBlock from './LinkCardListingBlock.js';
 
 class FreeformListingBlock extends React.Component{
 
@@ -62,7 +63,6 @@ class FreeformListingBlock extends React.Component{
             let blocks = freeform_content.map((value,index)=>{
 
                 let jsx_value = null;
-
                 switch(value.type){
 
                     case "text":
@@ -86,6 +86,10 @@ class FreeformListingBlock extends React.Component{
                     case "code":
                         jsx_value =
                             <CodeBlock key={index} json={value} isLoaded={true} idx={index}/>
+                        break;
+                    case "link_cards":
+                        jsx_value =
+                            <LinkCardListingBlock key={index} json={value} isLoaded={true} idx={index}/>
                         break;
                     default:
                         jsx_value =

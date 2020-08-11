@@ -8,7 +8,7 @@ from wagtail.search import index
 from wagtail.core.fields import RichTextField
 from .snippets import Navbar, Footer, Header
 from wagtailmetadata.models import MetadataPageMixin
-from .blocks import PDFEmbeddBlock, TimelineBlock, ProjectListingBlock
+from .blocks import LinkCardsBlock,PDFEmbeddBlock, TimelineBlock, ProjectListingBlock
 from datetime import date
 from wagtail.core.blocks import RichTextBlock, RawHTMLBlock
 from wagtail.core.fields import StreamField
@@ -70,7 +70,8 @@ class FreeformContentMixin(models.Model):
         ("timeline",TimelineBlock()),
         ("code",CodeBlock()),
         ("projects",ProjectListingBlock()),
-        ("text",RichTextBlock())
+        ("text",RichTextBlock()),
+        ("link_cards",LinkCardsBlock())
     ],null=True,blank=True)
 
     content_panels = [

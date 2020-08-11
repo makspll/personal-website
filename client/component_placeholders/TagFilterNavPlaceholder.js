@@ -14,7 +14,7 @@ class TagFilterNavPlaceholder extends React.Component{
             let tag_placeholders = [];
             for(let i = 0; i < no_tags;i++){
                 tag_placeholders.push(
-                        <button class="btn btn-secondary btn-sm p-0 m-1">
+                        <button className="btn btn-secondary btn-sm p-0 m-1">
                             <Skeleton width={final_widths[i]}  className="mr-1"/>
                         </button>
                     )

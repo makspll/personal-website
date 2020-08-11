@@ -113,3 +113,25 @@ class ProjectListingBlock(blocks.StructBlock):
 
     class Meta:
         template = "website/blocks/projects/project_listing_block.html"
+
+
+from wagtail.images.blocks import ImageChooserBlock
+
+
+
+
+class LinkCardBlock(blocks.StructBlock):
+    miniature_image = ImageChooserBlock()
+    linked_page = blocks.PageChooserBlock()
+    heading = blocks.CharBlock(max_length=255)
+    text = blocks.CharBlock(max_length=255)
+    link_text = blocks.CharBlock(max_length=255)
+
+class LinkCardsBlock(blocks.StructBlock):
+    
+    link_cards = blocks.ListBlock(LinkCardBlock())
+
+
+    
+    
+    
