@@ -194,7 +194,7 @@ class ArticlePage(MetadataPageMixin,
 
         tag_names =  ' '.join(ArticlePageTag.objects.filter(content_object=self).distinct().values_list('tag__name',flat=True))
         proposed_articles = ArticlePage.objects.live().search(tag_names,operator="or")
-
+        proposed_articles = [x for x in proposed_articles if x.pk != self.pk]
         context['relevant_articles'] = proposed_articles 
 
         return context
