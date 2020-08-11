@@ -54,6 +54,7 @@
                 {% endif %}
             {% endfor %}
             </div>
+            {% if relevant_articles %}
             <hr/>
             <div class="mx-4 mx-sm-5 mb-4">
                 <h2>Articles you might like:</h2>
@@ -64,6 +65,7 @@
                     
                 </ul>
             </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
