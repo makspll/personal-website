@@ -22,7 +22,6 @@ class TagFilterNavPlaceholder extends React.Component{
             let skeleton_color = getComputedStyle(document.documentElement)
                                     .getPropertyValue('--secondary');
             let highlight_color = LightenColor(skeleton_color,60);
-            console.log(skeleton_color + "," + highlight_color);
             return ( 
                 <nav className="bg-primary text-light border border-gray p-2 overflow-auto">
                     <div className="d-flex">
