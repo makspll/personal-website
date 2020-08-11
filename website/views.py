@@ -4,6 +4,8 @@ from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from wagtail.documents.models import Document
 import ntpath
+from .models import ArticlePage
+
 def view_document(request, document_id, document_filename):
     """
     Calls the normal document `serve` view, except makes it not an attachment.
@@ -26,3 +28,4 @@ def view_document(request, document_id, document_filename):
         response['Content-Disposition'] = 'inline; filename="{0}"'.format(document_filename)
     # Return the response
     return response
+

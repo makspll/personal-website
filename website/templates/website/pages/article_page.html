@@ -54,6 +54,16 @@
                 {% endif %}
             {% endfor %}
             </div>
+            <hr/>
+            <div class="mx-4 mx-sm-5 mb-4">
+                <h2>Articles you might like:</h2>
+                <ul class="list-group list-group-flush">
+                    {% for relevant_article in relevant_articles|slice:":3" %}
+                        <a href="{% pageurl relevant_article %}" class="list-group-item">{{relevant_article.title}}</a>
+                    {% endfor %}
+                    
+                </ul>
+            </div>
         </div>
     </div>
 {% endblock %}

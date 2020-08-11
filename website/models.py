@@ -188,6 +188,16 @@ class ArticlePage(MetadataPageMixin,
     template = "website/pages/article_page.html"
 
     tags = ClusterTaggableManager(through=ArticlePageTag, blank=True)
+    
+    def get_context(self,request):
+        context = super().get_context(request)
+
+        tag_names =  ' '.join(ArticlePageTag.objects.distinct().values_list('tag__name',flat=True))
+        proposed_articles = ArticlePage.objects.live().search(tag_names,operator="or")
+
+        context['relevant_articles'] = proposed_articles 
+
+        return context
 
     content_panels = \
         NavigationPageMixin.content_panels +\
