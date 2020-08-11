@@ -59,7 +59,7 @@ class ProjectBlock extends React.Component{
             let has_some_selected_tag = 
                 filters.selected_tags.length === 0 || 
                 filters.selected_tags.some((filter_tag)=>
-                    this.state.project_page_json.tags.includes(filter_tag)
+                    this.state.project_page_json.project_tags.includes(filter_tag)
                 );
 
             // end early

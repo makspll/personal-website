@@ -214,10 +214,13 @@ class ArticlePage(MetadataPageMixin,
         ]),
     ]
     
+class ProjectArticlePageTag(TaggedItemBase):
+    content_object = ParentalKey('website.ProjectArticlePage', related_name='tagged_items_project')
 
 class ProjectArticlePage(ArticlePage):
     template = "website/pages/project_article_page.html"
     
+    project_tags = ClusterTaggableManager(through=ProjectArticlePageTag, blank=True,verbose_name="Project tags")
 
     project_start_date = models.DateField(blank=True,null=True,default=date.today)
     project_end_date = models.DateField(blank=True,null=True,default=date.today)
@@ -225,17 +228,22 @@ class ProjectArticlePage(ArticlePage):
     content_panels = ArticlePage.content_panels + [
         FieldPanel("project_start_date"),
         FieldPanel("project_end_date"),
+        FieldPanel("project_tags"),
     ]
 
     api_fields = ArticlePage.api_fields + [
         APIField("project_start_date"),
         APIField("project_end_date"),
+        APIField("project_tags"),
 
     ]
 
     search_fields = ArticlePage.search_fields + [
         index.FilterField("project_start_date"),
         index.FilterField("project_end_date"),
+        index.RelatedFields('project_tags', [
+            index.SearchField('name', partial_match=True, boost=5),
+        ]),
     ]
 
 class ArticleListingPage(MetadataPageMixin,

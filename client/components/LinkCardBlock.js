@@ -100,7 +100,7 @@ class LinkCardBlock extends React.Component{
                     <div className="card-body position-relative">
                         <h3 className="card-title">{json.heading}</h3>
                         <hr/>
-                        <p className="card-text">{json.text}</p>
+                        <p className="card-text mb-5">{json.text}</p>
                         <a href={link_json.meta.html_url} className="btn absolute-bottom-right" style={{backgroundColor:current_color,borderRadius:"0",borderColor:color_hexes[index]}}><i className="fas fa-chevron-right"></i></a>
                     </div>
                 </div>

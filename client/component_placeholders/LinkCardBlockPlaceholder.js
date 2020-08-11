@@ -25,7 +25,7 @@ class LinkCardBlockPlaceholder extends React.Component{
                 <div className="card-body position-relative">
                     <h3 className="card-title"><Skeleton/></h3>
                     <hr/>
-                    <p className="card-text"><Skeleton count={3}/></p>
+                    <p className="card-text mb-5"><Skeleton count={3}/></p>
                     <a className="btn absolute-bottom-right disabled" style={{backgroundColor:current_color,borderRadius:"0",borderColor:color_hexes[index]}}><i className="fas fa-chevron-right"></i></a>
                 </div>
             </div>

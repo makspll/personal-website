@@ -24,7 +24,7 @@ class TagFilterNav extends React.Component{
             .then( 
                 (result) =>{
                     let aggregated_tag_names = result.flatMap((val)=>
-                        val.name
+                        val.tag.name
                     )
                     this.setState({
                         tag_list : aggregated_tag_names,
