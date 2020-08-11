@@ -25,3 +25,12 @@ DROPBOX_OAUTH2_TOKEN = os.environ.get("DROPBOX_OAUTH2_TOKEN")
 ## configure database via dj_database_url in prod
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
+# wagtail
+INSTALLED_APPS += [    'wagtail.contrib.postgres_search',]
+
+WAGTAILSEARCH_BACKENDS = {
+    'default': {
+        'BACKEND': 'wagtail.contrib.postgres_search.backend',
+        'SEARCH_CONFIG': 'english',
+    }
+}
