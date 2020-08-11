@@ -22,8 +22,10 @@ class ProjectArticlePageTagSerializer(serializers.ModelSerializer):
 class ProjectTagListView(generics.ListAPIView):
     serializer_class = ProjectArticlePageTagSerializer
     def get_queryset(self):
+        all_rows = ProjectArticlePageTag.objects.all().order_by("tag__name")
 
-        return ProjectArticlePageTag.objects.distinct().order_by("tag__name")
+        item_list = [all_rows.filter(tag__name=item['tag__name']).last() for item in ProjectArticlePageTag.objects.values('tag__name').distinct()]
+        return item_list
         
 
 # Create the router. "wagtailapi" is the URL namespace
