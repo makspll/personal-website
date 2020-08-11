@@ -61,7 +61,7 @@ class PDFBlock extends React.Component{
         let content = null;
         if (isLoaded && document_loaded && document_json){
 
-            let {title,description,document} = json.value;
+            let {title,description} = json.value;
             content =
                 <div className="flex-grow-1 d-flex flex-column card">
                     <button id={`collapse-${idx}`} className="rounded-0 text-reset text-decoration-none btn btn-link card-header collapse-arrow-container"  >
@@ -73,11 +73,11 @@ class PDFBlock extends React.Component{
                         <div className="card-body p-0">
                             <div id="document-holder" className=" vh-100 d-flex flex-column justify-content-center">
                                 <p className="p-5">Your browser doesn't support embedded PDF's, help yourself with a download below:</p>
-                                <a className="btn btn-primary align-self-center mb-5" href={ document.url}>Download PDF</a>
+                                <a className="btn btn-primary align-self-center mb-5" href={document_json.meta.download_url}>Download PDF</a>
                             </div>
                         </div>
                         <div className="card-footer">
-                            <p className="text-muted mb-0" >should the embedded document fail to show and the fallback not trigger <a href={document.url}>click here</a></p>
+                            <p className="text-muted mb-0" >should the embedded document fail to show and the fallback not trigger <a href={document_json.meta.download_url}>click here</a></p>
                         </div>
                     </UncontrolledCollapse>
                     <style dangerouslySetInnerHTML={{__html:
@@ -93,7 +93,6 @@ class PDFBlock extends React.Component{
         }else if(document_loaded &&!document_json){
             return <p>Could not load document, please refresh the page.</p>
         } else {
-            console.log("hello")
             content = <PDFBlockPlaceholder index={idx}/>;
 
         }
