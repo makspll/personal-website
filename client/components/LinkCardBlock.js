@@ -1,6 +1,7 @@
 import React from 'react';
 import {GET_API_ROOT_URL} from '../DynamicVariables';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
+import LinkCardBlockPlaceholder from '../component_placeholders/LinkCardBlockPlaceholder';
 
 class LinkCardBlock extends React.Component{
     constructor(props){
@@ -90,7 +91,7 @@ class LinkCardBlock extends React.Component{
                         />
             }
             content = 
-                <div className="card shadow bg-secondary border-0 text-dark text-center m-5" style={{width:"300px"}}>
+                <div className="card shadow bg-secondary border-0 text-dark text-center m-5" style={{width:"400px"}}>
                     <div className="border-bottom-0 card-header bg-white position-relative" >
                         {image}
                         <div className=" absolute-side-right" style={{backgroundColor:current_color,height:"100%",width:"10px"}}>
@@ -100,13 +101,13 @@ class LinkCardBlock extends React.Component{
                         <h3 className="card-title">{json.heading}</h3>
                         <hr/>
                         <p className="card-text">{json.text}</p>
-                        <a href={link_json.meta.html_url} className="btn absolute-bottom-right" style={{backgroundColor:current_color,borderRadius:"0",borderColor:color_hexes[index]}}><i class="fas fa-chevron-right"></i></a>
+                        <a href={link_json.meta.html_url} className="btn absolute-bottom-right" style={{backgroundColor:current_color,borderRadius:"0",borderColor:color_hexes[index]}}><i className="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
-        } else if(isLoaded){
-
+        } else if(isLoaded && !json){
+            content = <p>Could not load data, please refresh the page.</p>
         } else {
-
+            content = <LinkCardBlockPlaceholder index={index}/>
         }
 
         return content;

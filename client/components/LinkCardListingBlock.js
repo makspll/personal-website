@@ -1,11 +1,11 @@
 import React from 'react';
 import LinkCardBlock from './LinkCardBlock';
+import Spinner from '../component_placeholders/Spinner';
 
 class LinkCardListingBlock extends React.Component{
 
     render(){
         let {json,isLoaded,index} = this.props;
-        console.log(json);
         let content = null;
         if(isLoaded && json){
             content = 
@@ -15,9 +15,16 @@ class LinkCardListingBlock extends React.Component{
                     })}
                 </div>
         } else if(isLoaded){
-            content = <p>Could not load data. Please refresh the page.</p>
+            content = 
+                <div className="overflow-full-width bg-primary d-flex flex-row justify-content-around flex-wrap align-items-stretch">
+                    <p>Could not load data. Please refresh the page.</p>
+                </div>
         } else {
-            content = null;
+            content =                 
+            <div className="overflow-full-width bg-primary d-flex flex-row flex-grow-1 justify-content-around flex-wrap align-items-stretch">
+                <Spinner/>
+                asdasd
+            </div>;
         }
         return content;
     }
