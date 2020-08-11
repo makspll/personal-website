@@ -121,7 +121,7 @@ from wagtail.images.blocks import ImageChooserBlock
 
 
 class LinkCardBlock(blocks.StructBlock):
-    miniature_image = ImageChooserBlock()
+    miniature_image = ImageChooserBlock(required=False)
     linked_page = blocks.PageChooserBlock()
     heading = blocks.CharBlock(max_length=255)
     text = blocks.CharBlock(max_length=255)
