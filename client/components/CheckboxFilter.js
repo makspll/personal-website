@@ -39,11 +39,8 @@ class CheckboxFilter extends React.Component{
     render() { 
         let {filters} = this.props;
         let buttons = this.props.button_names.map((val,idx)=>{
-            let btn_checked = !filters.selected_radiobuttons || 
-                        filters.selected_radiobuttons.length !== 0 || 
-                        filters.selected_radiobuttons.some((name)=>
-                            val === name
-                        );
+            let btn_checked = filters.selected_radiobuttons.includes(val);
+
             return (
                 <div key={idx} className="radio">
                     <label><input type="checkbox" name="optradio" checked={btn_checked} onChange={()=>this.handleRadioClick(val,btn_checked)}/> {val}</label>

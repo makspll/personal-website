@@ -74,8 +74,9 @@ class ProjectBlock extends React.Component{
                 );
             let hiding_coursework = filters.selected_radiobuttons.includes("Hide coursework");
             let passes_coursework_filter = !(hiding_coursework && this.state.project_page_json.is_coursework);
-
-            let passes_filters = has_some_selected_tag && passes_coursework_filter;
+            let hiding_hackathon_projects = filters.selected_radiobuttons.includes("Hide hackathon projects");
+            let passes_hackation_filter = !(hiding_hackathon_projects && this.state.project_page_json.is_hackathon_project);
+            let passes_filters = has_some_selected_tag && passes_coursework_filter && passes_hackation_filter;
 
             // end early
             if (!passes_filters){
@@ -102,7 +103,6 @@ class ProjectBlock extends React.Component{
             let tags = this.state.project_page_json.tags.map((value,index)=>{
                 <span key={index} className="badge badge-secondary mt-2"> { value } </span>
             })
-            console.log(this.state.project_page_json)
             let start_date = new Date(this.state.project_page_json.project_start_date)
             let end_date = new Date(this.state.project_page_json.project_end_date)
 

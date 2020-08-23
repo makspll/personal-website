@@ -52,7 +52,7 @@ class ProjectListingBlock extends React.Component{
                     {/*  set_selected_tags_handler={(tags)=>this.set_selected_tags(tags)} selected_tags={this.state.selected_tags} */}
                     <FiltersNav filters={this.state.filters} set_filters={(new_filters)=>this.set_filters_handler(new_filters)}>
                         <TagFilter/>
-                        <CheckboxFilter button_names={["Hide coursework"]}/>
+                        <CheckboxFilter button_names={["Hide coursework","Hide hackathon projects"]}/>
                     </FiltersNav>
                     {project_blocks}
                 </React.Fragment>;

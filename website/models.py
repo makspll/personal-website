@@ -226,6 +226,7 @@ class ProjectArticlePage(ArticlePage):
     project_end_date = models.DateField(blank=True,null=True,default=date.today)
     
     is_coursework = models.BooleanField(default=False)
+    is_hackathon_project = models.BooleanField(default=False)
     awards = StreamField([("award",AwardBlock(blank=True,null=True))],null=True,blank=True)
 
 
@@ -235,6 +236,7 @@ class ProjectArticlePage(ArticlePage):
         FieldPanel("project_tags"),
         StreamFieldPanel("awards"),
         FieldPanel("is_coursework"),
+        FieldPanel("is_hackathon_project"),
     ]
 
     api_fields = ArticlePage.api_fields + [
@@ -243,6 +245,7 @@ class ProjectArticlePage(ArticlePage):
         APIField("project_tags"),
         APIField("awards"),
         APIField("is_coursework"),
+        APIField("is_hackathon_project"),
 
     ]
 

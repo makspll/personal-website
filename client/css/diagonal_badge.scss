@@ -2,6 +2,7 @@
 
 
 .diagonal-badge{
+    @extend .shadow;
     --diagonal-badge-width: 250px;
 
     &-container{
