@@ -11,8 +11,8 @@ INSTALLED_APPS = INSTALLED_APPS + [
     'wagtail.images',
     'wagtail.search',
     'wagtail.admin',
+    'wagtail.contrib.legacy.richtext',
     'wagtail.core',
-
     'modelcluster',
     'taggit',]
 
