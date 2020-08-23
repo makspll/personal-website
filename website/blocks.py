@@ -133,5 +133,12 @@ class LinkCardsBlock(blocks.StructBlock):
 
 
     
-    
-    
+class AwardBlock(blocks.StructBlock):
+    name = blocks.CharBlock(max_length=255)
+    description = blocks.CharBlock(max_length=1024)
+    award_value = blocks.ChoiceBlock(choices=[
+        ('gold','Gold'),
+        ('silver','Silver'),
+        ('bronze','Bronze'),
+    ])
+

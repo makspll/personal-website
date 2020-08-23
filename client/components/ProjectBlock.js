@@ -46,6 +46,17 @@ class ProjectBlock extends React.Component{
         }
     }
 
+    getAwardIcon(award_value){
+        switch(award_value){
+            case "gold":
+                return <i className="fas fa-award fa-fw " style={{color:"#ffff00"}}></i>
+            case "silver":
+                return <i className="fas fa-award fa-fw " style={{color:"#e1e1ea"}}></i>
+            case "bronze":
+                return <i className="fas fa-award fa-fw " style={{color:"#604020"}}></i>
+
+        }
+    }
 
     render() {
         
@@ -91,14 +102,20 @@ class ProjectBlock extends React.Component{
             let tags = this.state.project_page_json.tags.map((value,index)=>{
                 <span key={index} className="badge badge-secondary mt-2"> { value } </span>
             })
-
+            console.log(this.state.project_page_json)
             let start_date = new Date(this.state.project_page_json.project_start_date)
             let end_date = new Date(this.state.project_page_json.project_end_date)
 
+            let awards = this.state.project_page_json.awards.map((value,index)=> {
+                return this.getAwardIcon(value.value.award_value);
+            })
+
             content =  
-                <li className="project-listing-project p-3 border position-relative">
+                <li className="project-listing-project p-3 border position-relative diagonal-badge-container">
+                    { this.state.project_page_json.awards.length != 0 ? <div className="diagonal-badge">{awards}</div> : null}
+
                     {image}
-                    <div className="project-listing-project-body">
+                    <div className="project-listing-project-body ">
                         <h4 className="h2 mb-0">{(this.props.json.override_title) ? 
                                                     this.props.json.override_title :
                                                     this.state.project_page_json.title}</h4>
@@ -116,7 +133,7 @@ class ProjectBlock extends React.Component{
                             {tags}
                         </div>
 
-                            <p dangerouslySetInnerHTML={ {__html:this.state.project_page_json.blurb}}></p>
+                        <p dangerouslySetInnerHTML={ {__html:this.state.project_page_json.blurb}}></p>
                         <a href={ this.state.project_page_json.meta.html_url.toString() } className="stretched-link"></a>
                         <div className="overlay">Read More</div>
                     </div>

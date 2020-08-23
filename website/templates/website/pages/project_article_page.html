@@ -7,6 +7,21 @@
 <br/>
 <span class="badge badge-light font-weight-normal"><b>Project Started:</b> {% if page.project_start_date %}{{page.project_start_date}}{% else %}Not Started{% endif %}</span>
 <span class="badge badge-light font-weight-normal"><b>Project Ended:</b> {% if page.project_end_date%}{{page.project_end_date}}{% else %}In Progress{% endif %}</span>
+<br/>
+{% for award in page.awards %}
+<span class="badge badge-success font-weight-normal hoverable-text" data-toggle="tooltip" data-placement="top" title="    {{award.value.description}}
+">
+    {% if award.value.award_value == "gold"%}
+    <i class="g fas fa-award fa-fw" style="color:#ffff00"></i>
+    {% elif award.value.award_value == "silver"%}
+    <i class="b fas fa-award fa-fw" style="color:#e1e1ea"></i>
+    {% else %}
+    <i class="s fas fa-award fa-fw" style="color:#604020"></i>
+    {% endif %}
+    {{award.value.name}}
+</span>
+{% endfor %}
+
 {% endblock %}
 
 {% endlocaltime%}

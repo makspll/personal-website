@@ -1,0 +1,28 @@
+
+
+
+.diagonal-badge{
+    --diagonal-badge-width: 250px;
+
+    &-container{
+        overflow: hidden;
+        position: relative;
+    }
+
+    white-space:nowrap;
+    position:absolute;
+    padding: 5px 100px;
+    min-width: var(--diagonal-badge-width);
+    height: 40px;
+    left:0;
+    top: 0;
+    background-color: $success;
+    color: $light;
+    text-align: center;
+    text-transform: uppercase;
+    box-sizing: border-box;
+
+    transform-origin: 50% 100%;
+    transform: translateY(-100%) translateX(-50%) rotate(-45deg) translateY(calc(var(--diagonal-badge-width)/2)) ;
+
+}
