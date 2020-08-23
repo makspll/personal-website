@@ -2,28 +2,32 @@ import React from 'react';
 import {GET_ROOT_URL,GET_API_ROOT_URL} from '../DynamicVariables.js';
 import ContentLoader from "react-content-loader"
 import ProjectBlock from "./ProjectBlock.js";
-import TagFilterNav from "./TagFilterNav.js";
+import FiltersNav from "./FiltersNav.js";
+import {initial_filters} from "../components/FiltersNav";
+
 import Spinner from "../component_placeholders/Spinner";
+import TagFilter from "../components/TagFilter";
+import CheckboxFilter from "../components/CheckboxFilter";
 
 class ProjectListingBlock extends React.Component{
     constructor(props){
         super(props);
 
         this.state = {
-            selected_tags : [],
+            filters: initial_filters,
         }
     }
 
-    set_selected_tags(tags){
-
+    set_filters_handler(new_filters){
         this.setState({
-            selected_tags: tags,
+            filters:new_filters,
         })
     }
 
     render() { 
         const  {isLoaded, json} = this.props;
-        
+        let {filters} = this.state;
+
         let content = null
 
         // place either skeleton or loaded content
@@ -35,7 +39,7 @@ class ProjectListingBlock extends React.Component{
                     key={index} 
                     isLoaded={true} 
                     json={value} 
-                    filters={{selected_tags:this.state.selected_tags}}/>
+                    filters={filters}/>
             )
             let heading = (json.value.heading)? 
                             <h3 className="project-listing-heading h1 my-2">{json.value.heading}</h3> : 
@@ -45,7 +49,11 @@ class ProjectListingBlock extends React.Component{
                 <React.Fragment>
                     {heading}
                     {(heading)?<hr/>:null}
-                    <TagFilterNav set_selected_tags_handler={(tags)=>this.set_selected_tags(tags)} selected_tags={this.state.selected_tags}/>
+                    {/*  set_selected_tags_handler={(tags)=>this.set_selected_tags(tags)} selected_tags={this.state.selected_tags} */}
+                    <FiltersNav filters={this.state.filters} set_filters={(new_filters)=>this.set_filters_handler(new_filters)}>
+                        <TagFilter/>
+                        <CheckboxFilter button_names={["Hide coursework"]}/>
+                    </FiltersNav>
                     {project_blocks}
                 </React.Fragment>;
 
@@ -53,8 +61,6 @@ class ProjectListingBlock extends React.Component{
             
             content = <Spinner/>;
         }
-
-       
 
         return (
                 <div className="project-listing list-unstyled p-2 border ">

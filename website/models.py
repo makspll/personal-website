@@ -225,16 +225,20 @@ class ProjectArticlePage(ArticlePage):
     project_start_date = models.DateField(blank=True,null=True,default=date.today)
     project_end_date = models.DateField(blank=True,null=True,default=date.today)
     
+    is_coursework = models.BooleanField(default=False)
+
     content_panels = ArticlePage.content_panels + [
         FieldPanel("project_start_date"),
         FieldPanel("project_end_date"),
         FieldPanel("project_tags"),
+        FieldPanel("is_coursework"),
     ]
 
     api_fields = ArticlePage.api_fields + [
         APIField("project_start_date"),
         APIField("project_end_date"),
         APIField("project_tags"),
+        APIField("is_coursework"),
 
     ]
 

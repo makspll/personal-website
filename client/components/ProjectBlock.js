@@ -61,9 +61,13 @@ class ProjectBlock extends React.Component{
                 filters.selected_tags.some((filter_tag)=>
                     this.state.project_page_json.project_tags.includes(filter_tag)
                 );
+            let hiding_coursework = filters.selected_radiobuttons.includes("Hide coursework");
+            let passes_coursework_filter = !(hiding_coursework && this.state.project_page_json.is_coursework);
+
+            let passes_filters = has_some_selected_tag && passes_coursework_filter;
 
             // end early
-            if (!has_some_selected_tag){
+            if (!passes_filters){
                 return null
             }
 

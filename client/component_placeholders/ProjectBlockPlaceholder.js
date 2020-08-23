@@ -23,7 +23,7 @@ const ProjectBlockPlaceholder = (props) =>{
                     <br/>
                 </div>
                     {widths.map((value,index)=>{
-                        return <p><Skeleton width={value}/></p>
+                        return <p key={index} ><Skeleton width={value}/></p>
                         
                     })}
             </div>
