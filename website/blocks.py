@@ -100,7 +100,7 @@ class TimelineBlock(BaseStoryBlock):
         template = "website/blocks/stories/timeline_block.html"
 
 class ProjectBlock(blocks.StructBlock):
-    override_title = blocks.CharBlock(null=True,blank=True)
+    override_title = blocks.CharBlock(required=False)
     project_page = blocks.PageChooserBlock(page_type="website.ProjectArticlePage")
 
     class Meta:
