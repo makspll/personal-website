@@ -16,13 +16,9 @@
         <h4>{{page.header.slide_down_text}}</h4>
         <i class="fa fa-chevron-down fa-2x float-up-down" aria-hidden="true"></i>
     </div>
-    {% endif %}
     {% compress js inline %}
     <script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-        //apply parallax
-       
-        {% if page.header.include_slide_down_sign%}
+    document.addEventListener('DOMContentLoaded', (event) => {       
         var vanished = false;
         var height = $( window ).height() * 0.4;
         var prompts = ["You can scroll again if you want &#128521","Again?"]
@@ -42,9 +38,9 @@
                scroll_no = scroll_no % prompts.length
             }
         });
-        {% endif %}
     })
     </script>
     {% endcompress %}
+    {% endif %}
 </div>
 {% endif %}
