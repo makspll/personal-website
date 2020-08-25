@@ -42,6 +42,10 @@ class NavigationPageMixin(models.Model):
         SnippetChooserPanel("footer")
     ]
 
+    api_fields = [
+        APIField("navbar"),
+        APIField("footer"),
+    ]
     class Meta:
         abstract = True
 
@@ -60,6 +64,9 @@ class HeaderedPageMixin(models.Model):
         SnippetChooserPanel("header")
     ]
 
+    api_fields = [
+        APIField("header"),
+    ]
     class Meta:
         abstract = True
 
@@ -104,7 +111,7 @@ class FreeformPage(MetadataPageMixin,
         Page.content_panels +\
         FreeformContentMixin.content_panels
 
-    api_fields = FreeformContentMixin.api_fields + [
+    api_fields = FreeformContentMixin.api_fields + HeaderedPageMixin.api_fields + NavigationPageMixin.api_fields +[
 
     ]
 
@@ -205,7 +212,7 @@ class ArticlePage(MetadataPageMixin,
         ArticlePageMixin.content_panels + [
             FieldPanel("tags"),
         ]
-    api_fields = ArticlePageMixin.api_fields + [
+    api_fields = ArticlePageMixin.api_fields + NavigationPageMixin.api_fields + [
         APIField("tags")
     ]
     search_fields = Page.search_fields + ArticlePageMixin.search_fields + [
@@ -290,6 +297,6 @@ class ArticleListingPage(MetadataPageMixin,
     content_panels = Page.content_panels + HeaderedPageMixin.content_panels + NavigationPageMixin.content_panels + [
     ]
 
-    api_fields = [
+    api_fields = HeaderedPageMixin.api_fields + NavigationPageMixin.api_fields + [
         APIField("articles",serializer=ArticlesSerializerField()),
     ]

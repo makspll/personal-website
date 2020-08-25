@@ -18,15 +18,15 @@
     gtag('config', 'UA-156414832-1');
   </script>
   
-  <!--AdSense-->
-  <script data-ad-client="ca-pub-9342954266051645" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  
   <!--bootstrap required tags-->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!--metadata-->
   {% meta_tags %}
+
+  <!--Webpack css export-->
+  <link rel="stylesheet" href="{% static "main.css" %}" ></link>
 
   <!--css-->
   {% compress css %}
