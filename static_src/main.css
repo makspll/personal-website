@@ -10206,6 +10206,33 @@ body {
     text-align: left !important;
   }
 }
+@media (hover: hover) {
+  a:hover {
+    color: blue;
+  }
+
+  .article-listing .overlay {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    visibility: hidden;
+    transform: scale(0);
+    transition: ease-in-out 0.15s;
+  }
+  .article-listing:hover .overlay {
+    visibility: visible;
+    transform: scale(1);
+    background-color: #eef0f2;
+    transition: ease-in-out 0.15s;
+    transition-delay: 0.7s;
+  }
+}
 .article-listing {
   max-width: 750px;
 }
@@ -10217,27 +10244,6 @@ body {
 }
 .article-listing-article {
   position: relative;
-}
-.article-listing-article .overlay {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  visibility: hidden;
-  transform: scale(0);
-  transition: ease-in-out 0.15s;
-}
-.article-listing-article:hover .overlay {
-  visibility: visible;
-  transform: scale(1);
-  background-color: #eef0f2;
-  transition: ease-in-out 0.15s;
-  transition-delay: 0.7s;
 }
 
 @media (min-width: 576px) {
