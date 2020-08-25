@@ -1,14 +1,6 @@
-import FreeformListingBlock from './components/FreeformListingBlock';
-import ArticleListingBlock from './components/ArticleListingBlock';
-import React from 'react';
-import ReactDOM from 'react-dom';
 import './css/all.scss';
-import AOS from 'aos';
 import './js/common.js';
-import 'popper.js';
-import Prism from 'prismjs';
-import 'bootstrap';
-import Rellax from 'rellax';
+require.include("./vendor");
 var images = document.getElementsByClassName('img-background');
 
 var rellax = new Rellax('.rellax', {
@@ -22,8 +14,7 @@ var rellax = new Rellax('.rellax', {
 
   });
 
-console.log("asd",rellax);
-console.log("hello");
+
 let freeform_content_root = document.getElementById('freeform_content');
 if (freeform_content_root){
     ReactDOM.render(
