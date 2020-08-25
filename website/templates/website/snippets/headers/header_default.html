@@ -4,7 +4,7 @@
 {% if page.header %}
 <div class="overflow-hidden jumbotron jumbotron-fluid text-center img-background-container {%if not page.header.background_image %}color-only{% endif %} d-flex flex-column  mb-0 {% if page.header.fill_view_height%} flex-grow-1 {% endif%}" >
 
-    {% image page.header.background_image max-1920x1080 class="img-background rellax" data-rellax-speed="-15"%}
+    {% image page.header.background_image max-1920x1080 class="img-background rellax" data-rellax-speed="-15" data-rellax-xs-speed="-10" data-rellax-mobile-speed="-10" data-rellax-tablet-speed="-10" data-rellax-desktop-speed="-15" %}
 
     <div class="container my-auto">
         <h1 class="display-4">{{ page.specific.header.heading }}</h1>

@@ -17,9 +17,11 @@ var rellax = new Rellax('.rellax', {
     wrapper: null,
     round: true,
     vertical: true,
-    horizontal: false
+    horizontal: false,
+    breakpoints:[480,768,1200]
+
   });
-  
+
 console.log("asd",rellax);
 console.log("hello");
 let freeform_content_root = document.getElementById('freeform_content');
