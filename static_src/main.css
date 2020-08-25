@@ -10207,10 +10207,6 @@ body {
   }
 }
 @media (hover: hover) {
-  a:hover {
-    color: blue;
-  }
-
   .article-listing .overlay {
     text-align: center;
     display: flex;
@@ -10228,7 +10224,7 @@ body {
   .article-listing:hover .overlay {
     visibility: visible;
     transform: scale(1);
-    background-color: #eef0f2;
+    background-color: rgba(238, 240, 242, 0.4);
     transition: ease-in-out 0.15s;
     transition-delay: 0.7s;
   }
