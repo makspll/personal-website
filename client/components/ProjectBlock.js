@@ -111,11 +111,11 @@ class ProjectBlock extends React.Component{
             })
 
             content =  
-                <li className="project-listing-project p-3 border position-relative diagonal-badge-container">
+                <li className="project-listing-project p-3 border overlay-container diagonal-badge-container">
                     { this.state.project_page_json.awards.length != 0 ? <div className="diagonal-badge">{awards}</div> : null}
 
                     {image}
-                    <div className="project-listing-project-body ">
+                    <div className="project-listing-project-body h-100">
                         <h4 className="h2 mb-0">{(this.props.json.override_title) ? 
                                                     this.props.json.override_title :
                                                     this.state.project_page_json.title}</h4>
@@ -133,9 +133,13 @@ class ProjectBlock extends React.Component{
                             {tags}
                         </div>
 
-                        <p dangerouslySetInnerHTML={ {__html:this.state.project_page_json.blurb}}></p>
+                        <p className="mb-auto" dangerouslySetInnerHTML={ {__html:this.state.project_page_json.blurb}}></p>
                         <a href={ this.state.project_page_json.meta.html_url.toString() } className="stretched-link"></a>
-                        <div className="overlay">Read More</div>
+                        <div className="overlay">
+                            <button href={ this.state.project_page_json.meta.html_url.toString() } className="btn btn-primary mx-auto ">
+                                Read More
+                            </button>
+                        </div>
                     </div>
                 </li>
         }

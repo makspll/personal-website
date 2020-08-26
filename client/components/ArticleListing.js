@@ -81,7 +81,7 @@ class ArticleListing extends React.Component{
             let date = new Date(article_json.meta.first_published_at)
 
             content = 
-                <div className="article-listing-article pt-5 position-relative text-left pt-3" >
+                <div className="article-listing-article pt-5 overlay-container position-relative text-left pt-3" >
                     <h2 className="mb-0">{article_json.title}</h2>
                     <div >
                         <div className="text-muted h6">
@@ -95,7 +95,11 @@ class ArticleListing extends React.Component{
                     {image}
                     <a href={article_json.meta.html_url} className="stretched-link"></a>
                     <p dangerouslySetInnerHTML={{__html:truncate(article_json.blurb,600)}}></p>
-                    <div className="overlay">Read More</div>
+                    <div className="overlay text-center">
+                            <button href={article_json.meta.html_url} className="btn btn-primary mx-auto ">
+                                Read More
+                            </button>
+                        </div>
                     <hr className="mb-0"/>
  
                 </div>

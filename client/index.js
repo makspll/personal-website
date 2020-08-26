@@ -11,6 +11,7 @@ import 'bootstrap';
 
 import './css/all.scss';
 import './js/common.js';
+
 var images = document.getElementsByClassName('img-background');
 
 var rellax = new Rellax('.rellax', {
